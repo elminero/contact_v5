@@ -17,6 +17,22 @@ Route::get('/', function () {
 
 
 
-Route::get('/profile', function () {
+Route::get('/profiles', function () {
     return view('profile.show');
+});
+
+
+Route::get('/profiles/list', function () {
+    return view('profile.index');
+});
+
+
+Route::get('/profiles/create', function () {
+    return view('profile.create');
+});
+
+
+
+Route::get('/profiles/edit', function () {
+    return view('profile.edit');
 });

@@ -1,5 +1,4 @@
-<div style="width: 175px; padding-bottom: 20px">
-
+<div style="padding: 20px">
     <a href="newcontact.php?id=1&action=update">
         Name: Farber Robert Ian<br />
         Alias: Rob<br />
@@ -9,5 +8,4 @@
             Note: </div> <div style=" float: left  ">hottie
         </div>
     </a>
-
 </div>

@@ -9,10 +9,10 @@
             <table class="table table-bordered table-hover table-striped table-responsive" >
                 <tbody >
                     <tr class="active" >
-                        <td><a href="profile.php?id=1">Robert Ian Farber</a></td>
+                        <td><a href="/profile/23">Robert Ian Farber</a></td>
                     </tr>
                     <tr class="active" >
-                        <td><a href="profile.php?id=5">Mike Lou Jackson</a></td>
+                        <td><a href="/profile/23">Mike Lou Jackson</a></td>
                     </tr>
                 </tbody>
             </table>

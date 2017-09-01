@@ -16,23 +16,24 @@ Route::get('/', function () {
 });
 
 
-Route::get('/profiles', function () {
-    return view('profiles.show');
+Route::get('/profile/{name}', 'NamesController@show');
+
+
+Route::get('/names/list', function () {
+    return view('names.index');
 });
 
 
-Route::get('/profiles/list', function () {
-    return view('profiles.index');
-});
+Route::get('/names/create', 'NamesController@create');
+
+Route::post('/names/create', 'NamesController@store');
 
 
-Route::get('/profiles/create', function () {
-    return view('profiles.create');
-});
 
 
-Route::get('/profiles/edit', function () {
-    return view('profiles.edit');
+
+Route::get('/names/edit', function () {
+    return view('names.edit');
 });
 
 

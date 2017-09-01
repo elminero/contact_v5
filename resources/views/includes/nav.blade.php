@@ -12,9 +12,9 @@
         <div class="navbar-collapse collapse" id="searchbar">
 
             <ul class="nav navbar-nav navbar-right">
-                <li class=""><a href="/profiles/list">List</a></li>
+                <li class=""><a href="/names/list">List</a></li>
 
-                <li class=""><a href="/profiles/create">New</a></li>
+                <li class=""><a href="/names/create">New</a></li>
 
                 <li><a href="controllers/LoginController.php?action=logout"><span id="timer">Logout 5:00</span></a></li>
             </ul>
@@ -33,6 +33,5 @@
             </form>
 
         </div>
-
 
     </nav>

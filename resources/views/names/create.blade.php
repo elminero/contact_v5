@@ -2,42 +2,44 @@
 @section('contents')
 
     <section class="col-sm-6">
-        <form class="form-horizontal" action="controllers/PersonController.php?action=create" method="post" name="addContact">
+        <form class="form-horizontal" action="/names/create" method="post" name="addContact">
+
+            {{csrf_field()}}
 
             <h3>Create a New Contact</h3>
 
             <div class="form-group">
-                <label class="col-sm-2 control-label" for="lastName">Last<span id="error"></span></label>
+                <label class="col-sm-2 control-label" for="last">Last<span id="error"></span></label>
                 <div class="col-sm-10">
-                    <input name="lastName" type="text" class="form-control" id="lastName"  value="" /><br />
+                    <input name="last" type="text" class="form-control" id="last"  value="" /><br />
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="col-sm-2 control-label" for="firstName">First<span id="error"></span></label>
+                <label class="col-sm-2 control-label" for="first">First<span id="error"></span></label>
                 <div class="col-sm-10">
-                    <input name="firstName" type="text" class="form-control" id="firstName"  value="" /><br />
+                    <input name="first" type="text" class="form-control" id="first"  value="" /><br />
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="col-sm-2 control-label" for="middleName">Middle<span id="error"></span></label>
+                <label class="col-sm-2 control-label" for="middle">Middle<span id="error"></span></label>
                 <div class="col-sm-10">
-                    <input name="middleName" type="text" class="form-control" id="middleName"  value="" /><br />
+                    <input name="middle" type="text" class="form-control" id="middle"  value="" /><br />
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="col-sm-2 control-label" for="aliasName">Alias<span id="error"></span></label>
+                <label class="col-sm-2 control-label" for="alias">Alias<span id="error"></span></label>
                 <div class="col-sm-10">
-                    <input name="aliasName" type="text" class="form-control" id="aliasName"  value="" /><br />
+                    <input name="alias" type="text" class="form-control" id="alias"  value="" /><br />
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="col-sm-2 control-label" for="birthMonth">Month</label>
+                <label class="col-sm-2 control-label" for="bmonth">Month</label>
                 <div class="col-sm-10">
-                    <select name="birthMonth" class="form-control" id="birthMonth">
+                    <select name="bmonth" class="form-control" id="bmonth">
 
                         <option value="0"> </option>
                         <option value="1">January</option>
@@ -57,11 +59,11 @@
             </div>
 
             <div class="form-group">
-                <label class="col-sm-2 control-label" for="birthDay">Day</label>
+                <label class="col-sm-2 control-label" for="bday">Day</label>
                 <div class="col-sm-10">
-                    <select name="birthDay" class="form-control" id="birthDay">
+                    <select name="bday" class="form-control" id="bday">
 
-                        <option value="0"> </option>
+                        <option value=""> </option>
 
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -74,11 +76,11 @@ on>
             </div>
 
             <div class="form-group">
-                <label class="col-sm-2 control-label" for="birthYear">Year</label>
+                <label class="col-sm-2 control-label" for="byear">Year</label>
                 <div class="col-sm-10">
-                    <select name="birthYear" class="form-control" id="birthYear">
+                    <select name="byear" class="form-control" id="byear">
 
-                        <option value="0"> </option>
+                        <option value="0000"> </option>
 
                         <option value="2017">2017</option>
                         <option value="2016">2016</option>

@@ -35,48 +35,51 @@
 
     <section class="col-sm-6">
 
-        <form class="form-horizontal" action="controllers/PersonController.php?action=update" method="post" name="addContact">
+        <form class="form-horizontal" action="/names/edit/{{$name->id}}" method="post">
+
+            {{method_field('PATCH')}}
+
+            {{csrf_field()}}
 
             <h3 style="float: left">Update Contact</h3>
             <span style='float: right'>
-                <a class="btn btn-danger" id="delete" href="controllers/PersonController.php?action=delete&id=1">delete</a>
+                <a class="btn btn-danger" id="delete" href="/names/{{$name->id}}/destroy">delete</a>
             </span><br />
             <div style="clear: both"></div>
 
-
             <div class="form-group">
-                <label class="col-sm-2 control-label" for="lastName">Last<span id="error"></span></label>
+                <label class="col-sm-2 control-label" for="last">Last<span id="error"></span></label>
                 <div class="col-sm-10">
-                    <input name="lastName" type="text" class="form-control" id="lastName"  value="Farber" /><br />
+                    <input name="last" type="text" class="form-control" id="last"  value="{{$name->last}}" /><br />
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="col-sm-2 control-label" for="firstName">First<span id="error"></span></label>
+                <label class="col-sm-2 control-label" for="first">First<span id="error"></span></label>
                 <div class="col-sm-10">
-                    <input name="firstName" type="text" class="form-control" id="firstName"  value="Robert" /><br />
+                    <input name="first" type="text" class="form-control" id="first"  value="{{$name->first}}" /><br />
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="col-sm-2 control-label" for="middleName">Middle<span id="error"></span></label>
+                <label class="col-sm-2 control-label" for="middle">Middle<span id="error"></span></label>
                 <div class="col-sm-10">
-                    <input name="middleName" type="text" class="form-control" id="middleName"  value="Ian" /><br />
+                    <input name="middle" type="text" class="form-control" id="middle"  value="{{$name->middle}}" /><br />
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="col-sm-2 control-label" for="aliasName">Alias<span id="error"></span></label>
+                <label class="col-sm-2 control-label" for="alias">Alias<span id="error"></span></label>
                 <div class="col-sm-10">
-                    <input name="aliasName" type="text" class="form-control" id="aliasName"  value="Rob" /><br />
+                    <input name="alias" type="text" class="form-control" id="alias"  value="{{$name->alias}}" /><br />
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="col-sm-2 control-label" for="birthMonth">Month</label>
+                <label class="col-sm-2 control-label" for="bmonth">Month</label>
                 <div class="col-sm-10">
-                    <select name="birthMonth" class="form-control" id="birthMonth">
-                        <option value="11">November</option>
+                    <select name="bmonth" class="form-control" id="bmonth">
+                        <option value="{{$name->bmonth}}"><?php echo  DateTime::createFromFormat('!m',  $name->bmonth)->format('F'); ?></option>
 
                         <option value="0"> </option>
                         <option value="1">January</option>
@@ -96,34 +99,29 @@
             </div>
 
             <div class="form-group">
-                <label class="col-sm-2 control-label" for="birthDay">Day</label>
+                <label class="col-sm-2 control-label" for="bday">Day</label>
                 <div class="col-sm-10">
-                    <select name="birthDay" class="form-control" id="birthDay">
-                        <option value="27">27</option>
+                    <select name="bday" class="form-control" id="bday">
+                        <option value="{{$name->bday}}">{{$name->bday}}</option>
                         <option value="0"> </option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
+
+                        @for ($m = 0; $m <= 31; $m++)
+                            <option value="{{$m}}">{{$m}}</option>
+                        @endfor
+
                     </select>
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="col-sm-2 control-label" for="birthYear">Year</label>
+                <label class="col-sm-2 control-label" for="byear">Year</label>
                 <div class="col-sm-10">
-                    <select name="birthYear" class="form-control" id="birthYear">
-                        <option value="2001">2001</option>
+                    <select name="byear" class="form-control" id="byear">
+                        <option value="{{$name->byear}}">{{$name->byear}}</option>
                         <option value="0"> </option>
-                        <option value="2017">2017</option>
-                        <option value="2016">2016</option>
-                        <option value="2015">2015</option>
-                        <option value="2014">2014</option>
-                        <option value="2013">2013</option>
-                        <option value="2012">2012</option>
-                        <option value="2011">2011</option>
-                        <option value="2010">2010</option>
+                        @for ($y = 2017; $y >= 1907; $y--)
+                            <option value="{{$y}}">{{$y}}</option>
+                        @endfor
                     </select>
                 </div>
             </div>
@@ -131,11 +129,9 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label" for="note">Notes</label>
                 <div class="col-sm-10">
-                    <textarea name="note" class="form-control" id="note"  >hottie</textarea>
+                    <textarea name="note" class="form-control" id="note">{{$name->note}}</textarea>
                 </div>
             </div>
-
-            <input type="hidden" name="personId" value="1" />
 
             <div class="form-group">
                 <div class="col-sm-10 col-sm-offset-2">

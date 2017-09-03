@@ -12,16 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('layouts.master');
+    return view('welcome');
 });
 
 
 Route::get('/profile/{name}', 'NamesController@show');
 
 
-Route::get('/names/list', function () {
-    return view('names.index');
-});
+Route::get('/names/list', 'NamesController@index');
+
+
+Route::get('/names/{name}/destroy', 'NamesController@destroy');
+
 
 
 Route::get('/names/create', 'NamesController@create');
@@ -32,9 +34,16 @@ Route::post('/names/create', 'NamesController@store');
 
 
 
-Route::get('/names/edit', function () {
-    return view('names.edit');
-});
+Route::get('/names/edit/{name}', 'NamesController@edit');
+
+
+Route::patch('/names/edit/{name}', 'NamesController@update');
+
+
+Route::get('/names/edit/{name}', 'NamesController@edit');
+
+
+Route::get('/names/{name}/destroy', 'NamesController@destroy');
 
 
 Route::get('/phones/create', function () {

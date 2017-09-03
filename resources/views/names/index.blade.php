@@ -8,12 +8,13 @@
         <section class="col-xs-6">
             <table class="table table-bordered table-hover table-striped table-responsive" >
                 <tbody >
-                    <tr class="active" >
-                        <td><a href="/profile/23">Robert Ian Farber</a></td>
-                    </tr>
-                    <tr class="active" >
-                        <td><a href="/profile/23">Mike Lou Jackson</a></td>
-                    </tr>
+
+                    @foreach($names as $name)
+                        <tr class="active" >
+                            <td><a href="/profile/{{$name->id}}">{{$name->first . " " . $name->middle . " " . $name->last}}</a></td>
+                        </tr>
+                    @endforeach
+
                 </tbody>
             </table>
             <nav>

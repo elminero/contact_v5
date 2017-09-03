@@ -16,6 +16,7 @@ class CreateNamesTable extends Migration
         Schema::create('names', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+            $table->softDeletes();
             $table->string('first')->nullable();
             $table->string('last')->nullable();
             $table->string('middle')->nullable();

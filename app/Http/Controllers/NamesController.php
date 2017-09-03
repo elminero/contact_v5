@@ -10,6 +10,19 @@ use Carbon\Carbon;
 
 class NamesController extends Controller
 {
+
+    public function index()
+    {
+        $names = new Name();
+        $names = $names->all();
+
+        return view('names.index', compact('names'));
+    }
+
+
+
+
+
     public function create()
     {
         return view('names.create');
@@ -18,26 +31,7 @@ class NamesController extends Controller
 
     public function store(Request $request)
     {
-
-
         $name = new Name();
-
-/*
-        // check to see if birth_day and birth_month was entered.
-        if (!$request->birth_day || !$request->birth_month) {
-
-            $name->dob = null;
-            //dd('A birth day of a birth month was not entered!');
-        }
-
-        if ($request->birth_day && $request->birth_month) {
-            $dob = $request->birth_day . '-' . $request->birth_month . '-' . $request->birth_year;
-            $name->dob = Carbon::createFromFormat('j-m-Y', $dob);
-        }
-
-
-      //  $this->attributes['expireson'] = $value ? Carbon::createFromFormat('d.m.Y', $value)->toDateString() : null
-*/
 
         $name->byear = $request->byear;
         $name->bmonth = $request->bmonth;
@@ -57,7 +51,33 @@ class NamesController extends Controller
 
     public function show(Name $name)
     {
-        return view('names.show', compact('name'));
+        $dob = (new \App\Repositories\Names)->Dob($name->byear, $name->bmonth, $name->bday, $name->note);
+
+        return view('names.show', compact('name', 'dob'));
+    }
+
+
+    public function edit(Name $name)
+    {
+        $dob = (new \App\Repositories\Names)->Dob($name->byear, $name->bmonth, $name->bday, $name->note);
+
+        return view('names.edit', compact('name', 'dob'));
+    }
+
+
+    public function update(Request $request, Name $name)
+    {
+        $name->update($request->all());
+
+        return redirect('/profile/'.$name->id);
+    }
+
+
+    public function destroy(Name $name)
+    {
+        $name->delete();
+
+        return redirect('/names/list');
     }
 
 }

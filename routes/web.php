@@ -16,45 +16,25 @@ Route::get('/', function () {
 });
 
 
-Route::get('/profile/{name}', 'NamesController@show');
-
-
 Route::get('/names/list', 'NamesController@index');
-
-
-Route::get('/names/{name}/destroy', 'NamesController@destroy');
-
-
-
+Route::get('/profile/{name}', 'NamesController@show');
 Route::get('/names/create', 'NamesController@create');
-
 Route::post('/names/create', 'NamesController@store');
-
-
-
-
-
+Route::get('/names/{name}/destroy', 'NamesController@destroy');
 Route::get('/names/edit/{name}', 'NamesController@edit');
-
-
 Route::patch('/names/edit/{name}', 'NamesController@update');
-
-
-Route::get('/names/edit/{name}', 'NamesController@edit');
-
-
 Route::get('/names/{name}/destroy', 'NamesController@destroy');
 
 
-Route::get('/phones/create', function () {
-    return view('phones.create');
-});
+Route::get('/phones/create/{name}', 'PhonesController@create');
+Route::post('/phones/create/{name}', 'PhonesController@store');
 
 
+Route::get('/phones/edit/{phone}', 'PhonesController@edit');
+Route::post('/phones/edit/{phone}', 'PhonesController@update');
+Route::get('/phones/{phone}/destroy', 'PhonesController@destroy');
 
-Route::get('/phones/edit', function () {
-    return view('phones.edit');
-});
+
 
 
 Route::get('/emails/create', function () {

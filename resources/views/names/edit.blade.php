@@ -3,8 +3,8 @@
 
 
 <ol class="breadcrumb">
-<li><a href="listcontacts.php">List</a></li>
-<li><a href="profile.php?id=1">Profile</a></li>
+<li><a href="/names/list">List</a></li>
+<li><a href="/profile/{{$name->id}}">Profile</a></li>
 <li><b>Update</b></li>
 </ol>
 

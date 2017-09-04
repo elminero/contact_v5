@@ -2,8 +2,8 @@
 @section('contents')
 
     <ol class="breadcrumb">
-        <li><a href="listcontacts.php">List</a></li>
-        <li><a href="profile.php?id=1" >Profile</a></li>
+        <li><a href="/names/list">List</a></li>
+        <li><a href="/profile/{{$name->id}}" >Profile</a></li>
         <li><b>Add Phone Number</b></li>
     </ol>
 
@@ -18,12 +18,13 @@
         </section>
         <section class="col-sm-6">
 
-            <form class="form-horizontal" action="controllers/PhoneNumberController.php?action=update" method="post" name="addPhone">
+            <form class="form-horizontal" action="/phones/edit/{{$phone->id}}" method="post">
 
+                {{csrf_field()}}
 
                 <h3 style="float: left">Update Phone Number</h3>
                         <span style='float: right'>
-                        <a class="btn btn-danger" id="delete" href="controllers/PhoneNumberController.php?action=delete&id=2&personId=1">delete</a>
+                        <a class="btn btn-danger" id="delete" href="/phones/{{$phone->id}}/destroy">delete</a>
                         </span><br />
                 <div style="clear: both"></div>
 
@@ -32,40 +33,36 @@
                     <label class="col-sm-2 control-label" for="type">Type</label>
                     <div class="col-sm-10">
                         <select name="type" class="form-control" id="type">
-                            <option  value="0"> </option>
-                            <option  value="1">Business</option>
-                            <option selected value="2">Home</option>
-                            <option  value="3">Fax</option>
-                            <option  value="4">Other</option>
+                            <option @if ($phone->type == 0) {  selected   } @endif value="0"> </option>
+                            <option @if ($phone->type == 1) {  selected   } @endif value="1">Business</option>
+                            <option @if ($phone->type == 2) {  selected   } @endif value="2">Home</option>
+                            <option @if ($phone->type == 3) {  selected   } @endif value="3">Fax</option>
+                            <option @if ($phone->type == 4) {  selected   } @endif value="4">Other</option>
                         </select>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label" for="phone">Phone</label>
+                    <label class="col-sm-2 control-label" for="number">Phone</label>
                     <div class="col-sm-10">
-                        <input name="phone" type="text" class="form-control" id="phone"  value="212-325-7526" /><br />
+                        <input name="number" type="text" class="form-control" id="number"  value="{{$phone->number}}" /><br />
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="note">Notes</label>
                     <div class="col-sm-10">
-                        <textarea name="note" class="form-control" id="note"  >hello</textarea>
+                        <textarea name="note" class="form-control" id="note">{{$phone->note}}</textarea>
                     </div>
                 </div>
 
-                <input type="hidden" name="personId" value="1" />
-                <input type="hidden" name="phoneId" value="2" />
 
                 <div style="float: left; color: #990000; margin-top: 10px;">
                 </div>
 
                 <div class="form-group">
                     <div class="col-sm-10 col-sm-offset-2">
-                        <input class="form-control btn btn-primary"  type="submit" name="addPhone" value="Update"
-                               id="update"
-                                />
+                        <input class="form-control btn btn-primary"  type="submit" name="addPhone" value="Update" id="update"/>
                     </div>
                 </div>
 

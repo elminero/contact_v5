@@ -18,9 +18,9 @@ class CreateEmailsTable extends Migration
             $table->integer('name_id');
             $table->timestamps();
             $table->softDeletes();
-            $table->integer('type');
-            $table->string('address');
-            $table->text('note');
+            $table->integer('type')->nullable();
+            $table->string('address')->nullable();
+            $table->text('note')->nullable();
         });
     }
 

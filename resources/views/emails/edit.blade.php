@@ -2,8 +2,8 @@
 @section('contents')
 
     <ol class="breadcrumb">
-        <li><a href="">List</a></li>
-        <li><a href="" >Profile</a></li>
+        <li><a href="/names/list">List</a></li>
+        <li><a href="/profile/{{$name->id}}" >Profile</a></li>
         <li><b>Add Phone Number</b></li>
     </ol>
 

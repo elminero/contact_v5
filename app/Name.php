@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-use App\Phone;
 
 class Name extends Model
 {
@@ -29,6 +28,10 @@ class Name extends Model
     }
 
 
+    public function addresses()
+    {
+        return $this->hasMany(Address::class);
+    }
 
 }
 

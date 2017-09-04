@@ -4,22 +4,26 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePhonesTable extends Migration
+class CreateAddressesTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     *  type country state street postal_code note
      * @return void
      */
-    public function up() //type number  note
+    public function up()
     {
-        Schema::create('phones', function (Blueprint $table) {
+        Schema::create('addresses', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('name_id');
             $table->timestamps();
             $table->softDeletes();
             $table->integer('type')->nullable();
-            $table->string('number')->nullable();
+            $table->string('country')->nullable();
+            $table->string('state')->nullable();
+            $table->string('city')->nullable();
+            $table->string('street')->nullable();
+            $table->integer('postal_code')->nullable();
             $table->text('note')->nullable();
         });
     }
@@ -31,6 +35,6 @@ class CreatePhonesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('phones');
+        Schema::dropIfExists('addresses');
     }
 }

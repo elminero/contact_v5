@@ -2,8 +2,8 @@
 @section('contents')
 
     <ol class="breadcrumb">
-        <li><a href="listcontacts.php">List</a></li>
-        <li><a href="profile.php?id=1" >Profile</a></li>
+        <li><a href="/names/list">List</a></li>
+        <li><a href="/profile/{{$name->id}}" >Profile</a></li>
         <li><b>Add Phone Number</b></li>
     </ol>
 
@@ -20,15 +20,16 @@
 
 
 
-            <form class="form-horizontal" action="controllers/AddressController.php?action=create" method="post" name="addAddress">
+            <form class="form-horizontal" action="/addresses/create/{{$name->id}}" method="post"><!-- type country state street postal_code note -->
 
+                {{csrf_field()}}
 
                 <h3>Add Address</h3>
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label" for="address_type">Type</label>
+                    <label class="col-sm-2 control-label" for="type">Type</label>
                     <div class="col-sm-10">
-                        <select name="address_type" class="form-control" id="address_type">
+                        <select name="type" class="form-control" id="type">
                             <option  value="0" >  </option>
                             <option   value="1" > Current Street </option>
                             <option   value="2" > Current Mailing </option>
@@ -44,7 +45,7 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="country">Country</label>
                     <div class="col-sm-10">
-                        <select name="country_iso" class="form-control" id="country">
+                        <select name="country" class="form-control" id="country">
 
                             <option value= "1"> </option>
                             <option value="US" > United States </option  >
@@ -66,11 +67,12 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label" for="stateSelect">State</label>
+                    <label class="col-sm-2 control-label" for="state">State</label>
                     <div class="col-sm-10">
-                        <select name="state" class="form-control" id="stateSelect">
+                        <select name="state" class="form-control" id="state">
                             <option value=""></option>
                             <option value="">Select Country First</option>
+                            <option value="California">California</option>
                         </select>
                     </div>
                 </div>
@@ -103,14 +105,9 @@
                     </div>
                 </div>
 
-                <input type="hidden" name="personId" value="1" />
-                <input type="hidden" name="id" value="" />
-
                 <div class="form-group">
                     <div class="col-sm-10 col-sm-offset-2">
-                        <input class="btn btn-default"  type="submit" name="addAddress" value="Create"
-                               id="create"
-                                />
+                        <input class="btn btn-primary form-control"  type="submit" name="addAddress" value="Create" id="create"/>
                     </div>
                 </div>
 

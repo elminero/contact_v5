@@ -19,7 +19,7 @@
         <section class="col-sm-6">
 
             <form class="form-horizontal" action="/phones/edit/{{$phone->id}}" method="post">
-
+                {{method_field('PATCH')}}
                 {{csrf_field()}}
 
                 <h3 style="float: left">Update Phone Number</h3>
@@ -27,7 +27,6 @@
                         <a class="btn btn-danger" id="delete" href="/phones/{{$phone->id}}/destroy">delete</a>
                         </span><br />
                 <div style="clear: both"></div>
-
 
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="type">Type</label>

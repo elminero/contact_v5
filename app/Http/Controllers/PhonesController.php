@@ -12,7 +12,6 @@ class PhonesController extends Controller
 {
     public function create(Name $name)
     {
-
         $dob = (new \App\Repositories\Names)->Dob($name->byear, $name->bmonth, $name->bday, $name->note);
 
         return view('phones.create', compact('name', 'dob'));

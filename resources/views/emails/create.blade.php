@@ -2,8 +2,8 @@
 @section('contents')
 
     <ol class="breadcrumb">
-        <li><a href="listcontacts.php">List</a></li>
-        <li><a href="profile.php?id=1" >Profile</a></li>
+        <li><a href="/names/list">List</a></li>
+        <li><a href="" >Profile</a></li>
         <li><b>Add Phone Number</b></li>
     </ol>
 
@@ -18,9 +18,8 @@
         </section>
         <section class="col-sm-6">
 
-
-            <form class="form-horizontal"  action="controllers/EmailAddressController.php?action=create" method="post" name="addEmail">
-
+            <form class="form-horizontal"  action="/emails/create/{{$name->id}}" method="post">
+                {{csrf_field()}}
 
                 <h3>Add E-Mail Address</h3>
 
@@ -39,9 +38,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label" for="emailAddress">E-Mail</label>
+                    <label class="col-sm-2 control-label" for="address">E-Mail</label>
                     <div class="col-sm-10">
-                        <input name="emailAddress" type="text" class="form-control" id="emailAddress"  value="" /><br />
+                        <input name="address" type="text" class="form-control" id="address"  value="" /><br />
                     </div>
                 </div>
 
@@ -52,17 +51,12 @@
                     </div>
                 </div>
 
-
-                <input type="hidden" name="personId" value="1" />
-
                 <div style="float: left; color: #990000; margin-top: 10px;">
                 </div>
 
                 <div class="form-group">
                     <div class="col-sm-10 col-sm-offset-2">
-                        <input class="form-control btn btn-primary"  type="submit" name="addEmail" value="Create"
-                               id="create"
-                                />
+                        <input class="form-control btn btn-primary"  type="submit" name="addEmail" value="Create" id="create" />
                     </div>
                 </div>
 

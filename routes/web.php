@@ -37,14 +37,15 @@ Route::get('/phones/{phone}/destroy', 'PhonesController@destroy');
 
 
 
-Route::get('/emails/create', function () {
-    return view('emails.create');
-});
+Route::get('/emails/create/{name}', 'EmailsController@create');
+
+Route::post('/emails/create/{name}', 'EmailsController@store');
+Route::get('/emails/{email}/destroy', 'EmailsController@destroy');
 
 
-Route::get('/emails/edit', function () {
-    return view('emails.edit');
-});
+Route::get('/emails/edit/{email}', 'EmailsController@edit');
+Route::patch('/emails/edit/{email}', 'EmailsController@update');
+
 
 
 Route::get('/addresses/create', function () {

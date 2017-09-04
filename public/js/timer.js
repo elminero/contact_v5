@@ -22,7 +22,7 @@ function timer() {
         document.getElementById("timer").innerHTML = "Logout " + getDisplayTime();
     } else {
         clearInterval(intervalHandler );
-        window.location = "controllers/LoginController.php?action=logout";
+      //  window.location = "";
     }
 
 }

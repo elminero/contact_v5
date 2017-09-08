@@ -1,5 +1,14 @@
 @extends('layouts.master')
+@section('title', 'Address')
+
+@section('pagescript')
+    <script src="/js/statedropdown.js"></script>
+@endsection
+
 @section('contents')
+
+
+
 
     <ol class="breadcrumb">
         <li><a href="/names/list">List</a></li>
@@ -24,7 +33,7 @@
 
                 {{csrf_field()}}
 
-                <h3>Add Address</h3>
+                <h3 id="rude">Add Address</h3>
 
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="type">Type</label>
@@ -69,7 +78,7 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="state">State</label>
                     <div class="col-sm-10">
-                        <select name="state" class="form-control" id="state">
+                        <select name="state" class="form-control" id="stateSelect">
                             <option value=""></option>
                             <option value="">Select Country First</option>
                             <option value="California">California</option>

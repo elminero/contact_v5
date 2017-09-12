@@ -55,22 +55,13 @@
                     <label class="col-sm-2 control-label" for="country">Country</label>
                     <div class="col-sm-10">
                         <select name="country" class="form-control" id="country">
-
                             <option value= "1"> </option>
                             <option value="US" > United States </option  >
                             <option value="CA" > Canada </option>
                             <option value="MX" > Mexico </option>
-
-                            <option value="AF" >
-                                Afghanistan </option>
-                            <option value="AX" >
-                                Aland Islands </option>
-                            <option value="AL" >
-                                Albania </option>
-                            <option value="DZ" >
-                                Algeria </option>
-                            <option value="AS" >
-                                American Samoa </option>
+                            @foreach($countries as $country)
+                                <option value="{{$country->code}}" >{{$country->name}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>

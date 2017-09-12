@@ -8,13 +8,19 @@ use App\Name;
 
 use App\Address;
 
+use App\Country;
+
+
 class AddressesController extends Controller
 {
     public function create(Name $name)
     {
         $dob = (new \App\Repositories\Names)->Dob($name->byear, $name->bmonth, $name->bday, $name->note);
 
-        return view('addresses.create', compact('name', 'dob'));
+        $countries = new Country;
+        $countries = $countries::all();
+
+        return view('addresses.create', compact('name', 'dob', 'countries'));
     }
 
 

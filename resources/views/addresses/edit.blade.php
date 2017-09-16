@@ -1,4 +1,9 @@
 @extends('layouts.master')
+
+@section('pagescript')
+    <script src="/js/statedropdown.js"></script>
+@endsection
+
 @section('contents')
 
     <ol class="breadcrumb">

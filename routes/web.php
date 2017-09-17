@@ -44,8 +44,9 @@ Route::get('/addresses/{address}/destroy', 'AddressesController@destroy');
 
 
 
+// SubdivisionsController extends Controller
 
-
+Route::get('/subdivisions/{country_code}', 'SubdivisionsController@getSubdivisionsByCountryCode');
 
 
 

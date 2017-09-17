@@ -62,6 +62,26 @@ function preparePage() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     document.getElementById("delete").onclick = function()
     {
         if (!confirm('Delete ?')) {

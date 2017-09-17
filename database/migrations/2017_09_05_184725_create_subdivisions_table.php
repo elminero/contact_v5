@@ -14,10 +14,8 @@ class CreateSubdivisionsTable extends Migration
     public function up()
     {
         Schema::create('subdivisions', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
             $table->string('country_code');
             $table->string('subdivision');
-            // $table->foreign('country_code')->references('country_code')->on('countries');
         });
     }
 

@@ -2,7 +2,13 @@
 @section('title', 'Address')
 
 @section('pagescript')
-    <script src="/js/statedropdown.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="/js/statedropdown2.js"></script>
+
+
+
 @endsection
 
 @section('contents')
@@ -55,22 +61,13 @@
                     <label class="col-sm-2 control-label" for="country">Country</label>
                     <div class="col-sm-10">
                         <select name="country" class="form-control" id="country">
-
                             <option value= "1"> </option>
                             <option value="US" > United States </option  >
                             <option value="CA" > Canada </option>
                             <option value="MX" > Mexico </option>
-
-                            <option value="AF" >
-                                Afghanistan </option>
-                            <option value="AX" >
-                                Aland Islands </option>
-                            <option value="AL" >
-                                Albania </option>
-                            <option value="DZ" >
-                                Algeria </option>
-                            <option value="AS" >
-                                American Samoa </option>
+                            @foreach($countries as $country)
+                                <option value="{{$country->code}}" >{{$country->name}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -78,7 +75,7 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="state">State</label>
                     <div class="col-sm-10">
-                        <select name="state" class="form-control" id="stateSelect">
+                        <select name="state" class="form-control" id="state">
                             <option value=""></option>
                             <option value="">Select Country First</option>
                             <option value="California">California</option>

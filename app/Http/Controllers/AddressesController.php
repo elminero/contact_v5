@@ -10,6 +10,8 @@ use App\Address;
 
 use App\Country;
 
+use App\Subdivision;
+
 
 class AddressesController extends Controller
 {
@@ -36,8 +38,10 @@ class AddressesController extends Controller
     {
         $name = $address->name;
         $dob = (new \App\Repositories\Names)->Dob($address->name->byear, $address->name->bmonth, $address->name->bday, $address->name->note);
+        $subdivisions = (new Subdivision)->where('country_code', $address->country)->pluck("subdivision");
+        $country = (new Country)->where('country_code', $address->country)->pluck("country")->first();
 
-        return view('addresses.edit', compact('name', 'dob', 'address'));
+        return view('addresses.edit', compact('name', 'dob', 'address', 'subdivisions', 'country'));
     }
 
 

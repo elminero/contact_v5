@@ -14,6 +14,5 @@ class SubdivisionsController extends Controller
         $subdivisions = $subdivision->where('country_code', $county_code)->pluck("subdivision");
 
         return json_encode($subdivisions);
-
     }
 }

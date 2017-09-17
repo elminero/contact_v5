@@ -2,13 +2,8 @@
 @section('title', 'Address')
 
 @section('pagescript')
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
     <script src="/js/statedropdown2.js"></script>
-
-
-
 @endsection
 
 @section('contents')
@@ -78,7 +73,6 @@
                         <select name="state" class="form-control" id="state">
                             <option value=""></option>
                             <option value="">Select Country First</option>
-                            <option value="California">California</option>
                         </select>
                     </div>
                 </div>

@@ -1,7 +1,8 @@
 @extends('layouts.master')
 
 @section('pagescript')
-    <script src="/js/statedropdown.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/js/statedropdownedit.js"></script>
 @endsection
 
 @section('contents')
@@ -29,7 +30,7 @@
                 {{csrf_field()}}
                 {{method_field('PATCH')}}
 
-                <h3 style="float: left">Update Address</h3>
+                <h3 id="rude">Update Address</h3>
                     <span style='float: right'>
             <a class="btn btn-danger"  id="delete" href="/addresses/{{$address->id}}/destroy">delete</a>
             </span><br />
@@ -57,33 +58,25 @@
                     <label class="col-sm-2 control-label" for="country">Country</label>
                     <div class="col-sm-10">
                         <select name="country" class="form-control" id="country">
-                            <option value= "US "> {{ $address->country }} </option>
-
-                            <option value= "1"> </option>
-                            <option value="US" > United States </option  >
+                            <option value="{{$address->country}}">{{$country}}</option>
+                            <option value="US" > United States </option>
                             <option value="CA" > Canada </option>
                             <option value="MX" > Mexico </option>
-
-                            <option value="AF" >
-                                Afghanistan </option>
-                            <option value="AX" >
-                                Aland Islands </option>
-                            <option value="AL" >
-                                Albania </option>
-                            <option value="DZ" >
-                                Algeria </option>
-                            <option value="AS" >
-                                American Samoa </option>
                         </select>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label" for="stateSelect">State</label>
+                    <label class="col-sm-2 control-label" for="state">State</label>
                     <div class="col-sm-10">
-                        <select name="state" class="form-control" id="stateSelect">
+                        <select name="state" class="form-control" id="state">
                             <option value="{{$address->state}}">{{$address->state}}</option>
-                            <option value="">Select Country First</option>
+
+
+                            @foreach($subdivisions as $state)
+                                <option value="{{$state}}">{{$state}}</option>
+                            @endforeach
+
                         </select>
                     </div>
                 </div>

@@ -4,7 +4,6 @@
 
     $(document).ready(function() {
 
-
         $('select[name="country"]').on('change', function(){
 
            // document.getElementById("rude").innerHTML = "FUCK YOU !";
@@ -19,7 +18,6 @@
                    // $('#loader').css("visibility", "visible")
                 },
 
-
                 success:function(data) {
                     $('select[name="state"]').empty();
                     //document.getElementById("rude").innerHTML = data;
@@ -33,10 +31,3 @@
         });
 
     });
-
-
-
-
-
-
-

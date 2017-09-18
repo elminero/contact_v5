@@ -2,21 +2,18 @@
 @section('title', 'Address')
 
 @section('pagescript')
+    <script src="/js/jquery-3.2.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="/js/statedropdown2.js"></script>
+    <script src="/js/statedropdown.js"></script>
 @endsection
 
 @section('contents')
-
-
-
 
     <ol class="breadcrumb">
         <li><a href="/names/list">List</a></li>
         <li><a href="/profile/{{$name->id}}" >Profile</a></li>
         <li><b>Add Phone Number</b></li>
     </ol>
-
 
     <div class="row">
 
@@ -27,8 +24,6 @@
             </section>
         </section>
         <section class="col-sm-6">
-
-
 
             <form class="form-horizontal" action="/addresses/create/{{$name->id}}" method="post"><!-- type country state street postal_code note -->
 
@@ -112,7 +107,6 @@
                 </div>
 
             </form>
-
 
         </section><!--<div class="col-sm-5">-->
     </div><!--<div class="row">-->

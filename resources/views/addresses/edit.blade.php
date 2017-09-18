@@ -1,8 +1,8 @@
 @extends('layouts.master')
 
 @section('pagescript')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="/js/statedropdownedit.js"></script>
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/statedropdown.js"></script>
 @endsection
 
 @section('contents')
@@ -12,7 +12,6 @@
         <li><a href="/profile/{{$name->id}}" >Profile</a></li>
         <li><b>Add Phone Number</b></li>
     </ol>
-
 
     <div class="row">
 
@@ -24,7 +23,6 @@
         </section>
         <section class="col-sm-6">
 
-
             <form class="form-horizontal" action="" method="post">
 
                 {{csrf_field()}}
@@ -35,7 +33,6 @@
             <a class="btn btn-danger"  id="delete" href="/addresses/{{$address->id}}/destroy">delete</a>
             </span><br />
                 <div style="clear: both"></div>
-
 
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="type">Type</label>
@@ -116,8 +113,6 @@
                 </div>
 
             </form>
-
-
 
         </section><!--<div class="col-sm-5">-->
     </div><!--<div class="row">-->

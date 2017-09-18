@@ -48,8 +48,8 @@ Route::get('/addresses/{address}/destroy', 'AddressesController@destroy');
 
 Route::get('/subdivisions/{country_code}', 'SubdivisionsController@getSubdivisionsByCountryCode');
 
-
-
+Route::get('/pictures/create/{name}', 'PicturesController@create');
+Route::post('/pictures/create/{name}', 'PicturesController@store');
 
 
 

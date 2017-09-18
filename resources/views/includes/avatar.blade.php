@@ -5,6 +5,6 @@
         <a href="addphotos.php?id=1">View All</a>
     </div>
     <div style="float: right">
-        <a href="editphotos.php?id=1">Edit</a>
+        <a href="/pictures/create/{{$name->id}}">Add Picture</a>
     </div>
 </div>

@@ -62,6 +62,9 @@
                             <option value="US" > United States </option>
                             <option value="CA" > Canada </option>
                             <option value="MX" > Mexico </option>
+                            @foreach($countries as $country)
+                                <option value="{{$country->country_code}}" >{{$country->country}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -71,12 +74,9 @@
                     <div class="col-sm-10">
                         <select name="state" class="form-control" id="state">
                             <option value="{{$address->state}}">{{$address->state}}</option>
-
-
                             @foreach($subdivisions as $state)
                                 <option value="{{$state}}">{{$state}}</option>
                             @endforeach
-
                         </select>
                     </div>
                 </div>

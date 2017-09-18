@@ -61,7 +61,7 @@
                             <option value="CA" > Canada </option>
                             <option value="MX" > Mexico </option>
                             @foreach($countries as $country)
-                                <option value="{{$country->code}}" >{{$country->name}}</option>
+                                <option value="{{$country->country_code}}" >{{$country->country}}</option>
                             @endforeach
                         </select>
                     </div>

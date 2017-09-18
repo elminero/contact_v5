@@ -12,7 +12,7 @@
                 <a style="color: white" href="/addresses/edit/{{$address->id}}">
                     {{$address->street}}<br />
                     {{$address->city}}, {{$address->state}} {{$address->postal_code}} US<br />
-                    Roommate's place
+                    {{$address->note}}
                 </a>
             </section>
 

@@ -18,9 +18,7 @@ class AddressesController extends Controller
     public function create(Name $name)
     {
         $dob = (new \App\Repositories\Names)->Dob($name->byear, $name->bmonth, $name->bday, $name->note);
-
-        $countries = new Country;
-        $countries = $countries::all();
+        $countries = (new Country)->all();
 
         return view('addresses.create', compact('name', 'dob', 'countries'));
     }
@@ -40,8 +38,9 @@ class AddressesController extends Controller
         $dob = (new \App\Repositories\Names)->Dob($address->name->byear, $address->name->bmonth, $address->name->bday, $address->name->note);
         $subdivisions = (new Subdivision)->where('country_code', $address->country)->pluck("subdivision");
         $country = (new Country)->where('country_code', $address->country)->pluck("country")->first();
+        $countries = (new Country)->all();
 
-        return view('addresses.edit', compact('name', 'dob', 'address', 'subdivisions', 'country'));
+        return view('addresses.edit', compact('name', 'dob', 'address', 'subdivisions', 'country', 'countries'));
     }
 
 

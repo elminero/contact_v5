@@ -8,13 +8,16 @@ use App\Name;
 
 use App\Email;
 
+use App\Picture;
+
 class EmailsController extends Controller
 {
     public function create(Name $name)
     {
         $dob = (new \App\Repositories\Names)->Dob($name->byear, $name->bmonth, $name->bday, $name->note);
+        $avatar = (new Picture())->where('avatar', 1)->where('name_id', $name->id)->first();
 
-        return view('emails.create', compact('name', 'dob'));
+        return view('emails.create', compact('name', 'dob', 'avatar'));
     }
 
 
@@ -30,8 +33,9 @@ class EmailsController extends Controller
     {
         $name = $email->name;
         $dob = (new \App\Repositories\Names)->Dob($email->name->byear, $email->name->bmonth, $email->name->bday, $email->name->note);
+        $avatar = (new Picture())->where('avatar', 1)->where('name_id', $name->id)->first();
 
-        return view('emails.edit', compact('name', 'dob', 'email'));
+        return view('emails.edit', compact('name', 'dob', 'email', 'avatar'));
     }
 
 

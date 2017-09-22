@@ -7,7 +7,6 @@
         <li><b>Add Phone Number</b></li>
     </ol>
 
-
     <div class="row">
 
         <section class="col-sm-6">
@@ -18,7 +17,6 @@
         </section>
         <section class="col-sm-6">
 
-
                 <form class="form-horizontal" action="/pictures/create/{{$name->id}}" method="post" enctype="multipart/form-data" >
 
                     {{csrf_field()}}
@@ -27,7 +25,7 @@
                         <div class="col-sm-10 col-sm-offset-2">
                             <div class="checkbox">
                                 <label>
-                                    <input name="avatar" type="checkbox" value="" />Avatar
+                                    <input type="checkbox" name="avatar" value="1"  /> Avatar
                                 </label>
                             </div>
                         </div>
@@ -43,7 +41,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="caption"><span>Caption</span><span id="error"></span></label>
                         <div class="col-sm-10">
-                            <textarea name="caption" class="form-control" id="caption"  ></textarea>
+                            <textarea name="caption" class="form-control" id="caption"></textarea>
                         </div>
                     </div>
 
@@ -54,7 +52,6 @@
                     </div>
 
                 </form>
-
 
         </section><!--<div class="col-sm-5">-->
     </div><!--<div class="row">-->

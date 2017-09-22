@@ -33,5 +33,11 @@ class Name extends Model
         return $this->hasMany(Address::class);
     }
 
+
+    public function pictures()
+    {
+        return $this->hasMany(Picture::class);
+    }
+
 }
 

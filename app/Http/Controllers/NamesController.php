@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Picture;
 use Illuminate\Http\Request;
 
 use App\Name;
@@ -52,16 +53,18 @@ class NamesController extends Controller
     public function show(Name $name)
     {
         $dob = (new \App\Repositories\Names)->Dob($name->byear, $name->bmonth, $name->bday, $name->note);
+        $avatar = (new Picture())->where('avatar', 1)->where('name_id', $name->id)->first();
 
-        return view('names.show', compact('name', 'dob'));
+        return view('names.show', compact('name', 'dob', 'avatar'));
     }
 
 
     public function edit(Name $name)
     {
         $dob = (new \App\Repositories\Names)->Dob($name->byear, $name->bmonth, $name->bday, $name->note);
+        $avatar = (new Picture())->where('avatar', 1)->where('name_id', $name->id)->first();
 
-        return view('names.edit', compact('name', 'dob'));
+        return view('names.edit', compact('name', 'dob', 'avatar'));
     }
 
 

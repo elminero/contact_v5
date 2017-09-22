@@ -51,5 +51,7 @@ Route::get('/subdivisions/{country_code}', 'SubdivisionsController@getSubdivisio
 Route::get('/pictures/create/{name}', 'PicturesController@create');
 Route::post('/pictures/create/{name}', 'PicturesController@store');
 
+Route::get('/portfolio/{name}', 'PicturesController@index');
+
 
 

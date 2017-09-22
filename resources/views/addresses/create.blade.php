@@ -12,7 +12,7 @@
     <ol class="breadcrumb">
         <li><a href="/names/list">List</a></li>
         <li><a href="/profile/{{$name->id}}" >Profile</a></li>
-        <li><b>Add Phone Number</b></li>
+        <li><b>Add an Address</b></li>
     </ol>
 
     <div class="row">

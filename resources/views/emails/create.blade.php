@@ -10,14 +10,21 @@
 
     <div class="row">
 
-        <section class="col-sm-6">
-            <section class="col-sm-6">
+
+            <section class="col-sm-3">
                 <!-- div 1 Start Avatar -->
                 @include('includes.avatar')
             </section>
-        </section>
-        <section class="col-sm-6">
 
+
+
+        <section class="col-sm-3">
+        @include('includes.nameDOB')
+        </section>
+
+
+
+        <section class="col-sm-6">
             <form class="form-horizontal"  action="/emails/create/{{$name->id}}" method="post">
                 {{csrf_field()}}
 
@@ -61,7 +68,6 @@
                 </div>
 
             </form>
-
         </section><!--<div class="col-sm-5">-->
     </div><!--<div class="row">-->
     <hr/>

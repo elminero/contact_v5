@@ -21,8 +21,18 @@
                 </ul>
             </nav>
         </div>
+
+        <div style="padding: 5px">
         <a href="/picture/{{$pictureUpOne->id}}" >
             <img style="display: block; margin: 0 auto" class="img-responsive img-rounded" src="/pictures/{{$picture->path_to_file}}.jpg"  />
+
         </a>
+        </div>
+
+        @if($picture->caption)
+            <div style="background: white; color: black; padding: 5px;">
+                {{$picture->caption}}
+            </div>
+        @endif
 
 @endsection

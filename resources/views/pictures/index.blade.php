@@ -9,7 +9,7 @@
 
     @foreach($name->pictures as $picture)
 
-       <img src="/pictures/{{$picture->path_to_file}}_t.jpg" />
+       <a style="padding: 5px" href="/picture/{{$picture->id}}"><img src="/pictures/{{$picture->path_to_file}}_t.jpg" /></a>
 
     @endforeach
 

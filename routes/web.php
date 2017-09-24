@@ -53,5 +53,5 @@ Route::post('/pictures/create/{name}', 'PicturesController@store');
 
 Route::get('/portfolio/{name}', 'PicturesController@index');
 
-
+Route::get('/picture/{picture}', 'PicturesController@show');
 

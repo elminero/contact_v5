@@ -143,18 +143,28 @@ class PicturesController extends Controller
 
     public function index(Name $name)
     {
-
-
-
-
         return view('pictures.index', compact('name'));
-
     }
 
+
+    public function show(Picture $picture, Name $name)
+    {
+        if ( !$pictureUpOne = $picture->where('name_id', $picture->name_id)->where('id', '>', $picture->id)->limit(1)->get()->first() ) {
+             $pictureUpOne = $picture->where('name_id', $picture->name_id)->limit(1)->get()->first(); // lowest id
+        }
+
+        if ( !$pictureDownOne = $picture->where('name_id', $picture->name_id)->where('id', '<', $picture->id)->orderBy('id', 'desc')->limit(1)->first() ) {
+             $pictureDownOne = $picture->where('name_id', $picture->name_id)->limit(1)->orderByDesc('id')->get()->first(); // highest id
+        }
+
+        return view('pictures.show', compact('picture', 'name', 'pictureUpOne', 'pictureDownOne'));
+    }
 
 
 }
 /*
+
+
 "file": {
     "name": "tumblr_m5zqyis36J1r50ghwo1_500.jpg",
     "type": "image/jpeg",

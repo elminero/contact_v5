@@ -23,6 +23,12 @@
 }
 
 
+@media (min-width: 1300px) {
+    .container {
+        width: 1300px;
+    }
+}
+
 .breadcrumb {
     background-color: #1b6d85;
 }

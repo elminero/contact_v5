@@ -7,6 +7,8 @@
         <li><b>Picture</b></li>
     </ol>
 
+    <h1 align="center" style="">Robert Ian Farber aka: Robby</h1>
+
     <a href="/portfolio/{{$picture->name_id}}">View All</a>
 
         <div align="center" >
@@ -36,3 +38,4 @@
         @endif
 
 @endsection
+

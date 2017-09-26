@@ -4,7 +4,7 @@ use Carbon\Carbon;
 
 <div style="">
     <a href="/names/edit/{{$name->id}}">
-
+<!--
         <h1>
             @if ($name->first)
                 {{ $name->first . " "}}
@@ -19,26 +19,26 @@ use Carbon\Carbon;
                 <br />Alias: {{ $name->alias }}
             @endif
         </h1>
-
+-->
 
         @if ($name->first)
-            First Name: {{ $name->first}}<br />
+            <b>First Name:</b> {{ $name->first}}<br />
         @endif
         @if ($name->middle)
-            Middle Name: {{ $name->middle . " "}}<br />
+            <b>Middle Name:</b> {{ $name->middle . " "}}<br />
         @endif
         @if ($name->last)
-            Last Name: {{ $name->last . " " }}<br />
+            <b>Last Name:</b> {{ $name->last . " " }}<br />
         @endif
-        @if ($name->alias)
-            <br />Alias: {{ $name->alias }}
+        @if ($name->alias)<br />
+            <b>Alias:</b> {{ $name->alias }}
         @endif
 
         <br />
 
-        DOB: {{ $dob['dob'] }}<br />
-        Age: {{ $dob['age'] }}<br />
-        Note: {{ $dob['note'] }}
+        <b>DOB:</b> {{ $dob['dob'] }}<br />
+        <b>Age:</b> {{ $dob['age'] }}<br />
+        <b>Note:</b> {{ $dob['note'] }}
 
     </a>
 </div>

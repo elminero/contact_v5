@@ -17,7 +17,7 @@ class PicturesController extends Controller
     const LARGE_IMAGE_WIDTH = 800;
 
     // WIDTH OF THUMB NAIL
-    const THUMB_NAIL_IMAGE_WIDTH = 175;
+    const THUMB_NAIL_IMAGE_WIDTH = 250;
 
     private $_fileName, $_fileType, $_fileTmpName, $_fileSize;
 

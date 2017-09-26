@@ -1,6 +1,6 @@
-<div style="width: 175px; padding-bottom: 20px">
+<div style="padding-bottom: 20px">
     @isset($avatar->path_to_file)
-    <a href="/picture/{{$avatar->id}}"><img alt="" src="/pictures/{{$avatar->path_to_file}}_t.jpg" /></a>
+    <a href="/picture/{{$avatar->id}}"><img style="display: block; margin: 0 auto" class="img-responsive" src="/pictures/{{$avatar->path_to_file}}_t.jpg" /></a>
     @endisset
     <br />
     <div style="float: left">

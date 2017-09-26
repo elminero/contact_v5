@@ -7,16 +7,26 @@
         <li><b>Update Phone Number</b></li>
     </ol>
 
+    <h1 align="center" style="">Robert Ian Farber aka: Robby</h1>
 
     <div class="row">
 
-        <section class="col-sm-6">
-            <section class="col-sm-6">
-                <!-- div 1 Start Avatar -->
-                @include('includes.avatar')
-            </section>
+        <section class="col-sm-2">
+            <!-- div 1 Start Avatar -->
+            @include('includes.avatar')
         </section>
-        <section class="col-sm-6">
+
+        <section class="col-sm-3">
+            @include('includes.nameDOB')
+            @include('includes.address')
+        </section>
+
+        <section class="col-sm-3">
+            @include('includes.phoneNumbers')
+            @include('includes.email')
+        </section>
+
+        <section class="col-sm-4">
 
             <form class="form-horizontal" action="/phones/edit/{{$phone->id}}" method="post">
                 {{method_field('PATCH')}}
@@ -69,22 +79,6 @@
 
         </section><!--<div class="col-sm-5">-->
     </div><!--<div class="row">-->
-    <hr/>
-    <!-- array(4) { ["personId"]=> int(37) ["phoneNumber"]=> string(12) "914-331-8584" ["phoneType"]=> int(2) ["note"]=> string(2) "NY" } -->
-    <div class="row">
-        <!-- div 2 Start Name and DOB -->
-        <div class="col-sm-12">
-            @include('includes.nameDOB')
-        </div>
-    </div>
-    <hr />
-    <!-- Start Phone Numbers -->
-    @include('includes.phoneNumbers')
-    <hr />
-    <!-- Start Email Address  -->
-    @include('includes.email')
-    <hr />
-    <!-- Start Address -->
-    @include('includes.address')
+
 
 @endsection

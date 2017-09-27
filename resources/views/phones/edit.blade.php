@@ -7,7 +7,13 @@
         <li><b>Update Phone Number</b></li>
     </ol>
 
-    <h1 align="center" style="">Robert Ian Farber aka: Robby</h1>
+    <h2 align="center" style="margin-top: -50px; margin-bottom: 40px ">
+        {{$name->first}} {{$name->middle}} {{$name->last}}
+        @if ($name->alias)
+            aka:
+        @endif
+        {{$name->alias}}
+    </h2>
 
     <div class="row">
 
@@ -79,6 +85,5 @@
 
         </section><!--<div class="col-sm-5">-->
     </div><!--<div class="row">-->
-
 
 @endsection

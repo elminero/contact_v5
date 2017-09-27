@@ -1,13 +1,25 @@
 @extends('layouts.master')
 @section('contents')
 
+@section('pagescript')
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/js/statedropdown.js"></script>
+@endsection
+
     <ol class="breadcrumb">
         <li><a href="/names/list">List</a></li>
         <li><a href="/profile/{{$name->id}}" >Profile</a></li>
         <li><b>Add an Address</b></li>
     </ol>
 
-    <h1 align="center" style="">Robert Ian Farber aka: Robby</h1>
+    <h2 align="center" style="margin-top: -50px; margin-bottom: 40px ">
+        {{$name->first}} {{$name->middle}} {{$name->last}}
+        @if ($name->alias)
+            aka:
+        @endif
+        {{$name->alias}}
+    </h2>
 
     <div class="row">
 

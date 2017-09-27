@@ -1,39 +1,39 @@
 @extends('layouts.master')
 @section('contents')
 
-
 <ol class="breadcrumb">
-<li><a href="/names/list">List</a></li>
-<li><a href="/profile/{{$name->id}}">Profile</a></li>
-<li><b>Update</b></li>
+    <li><a href="/names/list">List</a></li>
+    <li><a href="/profile/{{$name->id}}">Profile</a></li>
+    <li><b>Update</b></li>
 </ol>
 
+<h2 align="center" style="margin-top: -50px; margin-bottom: 40px ">
+    {{$name->first}} {{$name->middle}} {{$name->last}}
+    @if ($name->alias)
+        aka:
+    @endif
+    {{$name->alias}}
+</h2>
+
 <div class="row">
-    <section class="col-sm-6">
+
+    <section class="col-sm-2">
         <!-- div 1 Start Avatar -->
         @include('includes.avatar')
-        <hr />
-
-        <!-- div 2 Start Name and DOB -->
-        @include('includes.nameDOB')
-
-        <hr />
-
-        <!-- Start Phone Numbers -->
-        @include('includes.phoneNumbers')
-        <hr />
-
-        <!-- Start Email Address  -->
-        @include('includes.email')
-        <hr />
-
-        <!-- Start Address -->
-        @include('includes.address')
-
-
     </section>
 
-    <section class="col-sm-6">
+    <section class="col-sm-3">
+        @include('includes.nameDOB')
+        @include('includes.address')
+    </section>
+
+    <section class="col-sm-3">
+        @include('includes.phoneNumbers')
+        @include('includes.email')
+    </section>
+
+    <section class="col-sm-4">
+
 
         <form class="form-horizontal" action="/names/edit/{{$name->id}}" method="post">
 
@@ -141,48 +141,23 @@
 
         </form>
 
-    </section>
-
-</div>
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </section><!--<div class="col-sm-5">-->
+</div><!--<div class="row">-->
 
 @endsection
+
+
+
+
+
+
+
+
+
+

@@ -1,13 +1,25 @@
 @extends('layouts.master')
 @section('contents')
 
+@section('pagescript')
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/js/statedropdown.js"></script>
+@endsection
+
     <ol class="breadcrumb">
         <li><a href="/names/list">List</a></li>
         <li><a href="/profile/{{$name->id}}" >Profile</a></li>
         <li><b>Update Address</b></li>
     </ol>
 
-    <h1 align="center" style="">Robert Ian Farber aka: Robby</h1>
+    <h2 align="center" style="margin-top: -50px; margin-bottom: 40px ">
+        {{$name->first}} {{$name->middle}} {{$name->last}}
+        @if ($name->alias)
+            aka:
+        @endif
+        {{$name->alias}}
+    </h2>
 
     <div class="row">
 
@@ -61,7 +73,7 @@
                     <div class="col-sm-10">
                         <select name="country" class="form-control" id="country">
                             <option value="{{$address->country}}">{{$country}}</option>
-                            <option value="US" > United States </option>
+                            @if ($address->country != 'US')<option value="US" > United States </option>@endif
                             <option value="CA" > Canada </option>
                             <option value="MX" > Mexico </option>
                             @foreach($countries as $country)
@@ -121,22 +133,5 @@
 
         </section><!--<div class="col-sm-5">-->
     </div><!--<div class="row">-->
-    <hr/>
-    <!-- array(4) { ["personId"]=> int(37) ["phoneNumber"]=> string(12) "914-331-8584" ["phoneType"]=> int(2) ["note"]=> string(2) "NY" } -->
-    <div class="row">
-        <!-- div 2 Start Name and DOB -->
-        <div class="col-sm-12">
-            @include('includes.nameDOB')
-        </div>
-    </div>
-    <hr />
-    <!-- Start Phone Numbers -->
-    @include('includes.phoneNumbers')
-    <hr />
-    <!-- Start Email Address  -->
-    @include('includes.email')
-    <hr />
-    <!-- Start Address -->
-    @include('includes.address')
 
 @endsection

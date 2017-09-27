@@ -142,9 +142,6 @@ class PicturesController extends Controller
         }
 
         return redirect('/profile/'.$name->id);
-
-
-
     }
 
 
@@ -163,6 +160,8 @@ class PicturesController extends Controller
         if ( !$pictureDownOne = $picture->where('name_id', $picture->name_id)->where('id', '<', $picture->id)->orderBy('id', 'desc')->limit(1)->first() ) {
              $pictureDownOne = $picture->where('name_id', $picture->name_id)->limit(1)->orderByDesc('id')->get()->first(); // highest id
         }
+
+        $name = Name::where('id', $picture->name_id)->first();
 
         return view('pictures.show', compact('picture', 'name', 'pictureUpOne', 'pictureDownOne'));
     }
@@ -208,7 +207,6 @@ class PicturesController extends Controller
         $picture->delete();
 
         return redirect('/portfolio/'.$picture->name_id);
-
     }
 
 

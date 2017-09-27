@@ -7,7 +7,13 @@
         <li><b>Portfolio</b></li>
     </ol>
 
-    <h1 align="center" style="">Robert Ian Farber aka: Robby</h1>
+    <h2 align="center" style="margin-top: -50px; margin-bottom: 40px ">
+        {{$name->first}} {{$name->middle}} {{$name->last}}
+        @if ($name->alias)
+            aka:
+        @endif
+        {{$name->alias}}
+    </h2>
 
     @foreach($name->pictures as $picture)
        <a style="padding: 5px" href="/picture/{{$picture->id}}"><img src="/pictures/{{$picture->path_to_file}}_t.jpg" /></a>

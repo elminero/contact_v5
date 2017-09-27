@@ -58,7 +58,7 @@
 
                     <div class="form-group">
                         <div class="col-sm-10 col-sm-offset-2">
-                            <input class="btn btn-default" type="submit" name="imageUpLoad" value="Upload Image" />
+                            <input class="btn btn-default" type="submit" name="imageUpLoad" value="Upload Picture" />
                         </div>
                     </div>
 

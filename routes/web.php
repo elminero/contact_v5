@@ -36,6 +36,9 @@ Route::get('/emails/edit/{email}', 'EmailsController@edit');
 Route::patch('/emails/edit/{email}', 'EmailsController@update');
 Route::get('/emails/{email}/destroy', 'EmailsController@destroy');
 
+
+Route::get('/subdivisions/{country_code}', 'SubdivisionsController@getSubdivisionsByCountryCode');
+
 Route::get('/addresses/create/{name}', 'AddressesController@create');
 Route::post('/addresses/create/{name}', 'AddressesController@store');
 Route::get('/addresses/edit/{address}', 'AddressesController@edit');
@@ -44,14 +47,11 @@ Route::get('/addresses/{address}/destroy', 'AddressesController@destroy');
 
 
 
-// SubdivisionsController extends Controller
-
-Route::get('/subdivisions/{country_code}', 'SubdivisionsController@getSubdivisionsByCountryCode');
 
 Route::get('/pictures/create/{name}', 'PicturesController@create');
 Route::post('/pictures/create/{name}', 'PicturesController@store');
-
 Route::get('/portfolio/{name}', 'PicturesController@index');
-
 Route::get('/picture/{picture}', 'PicturesController@show');
-
+Route::get('/picture/edit/{picture}', 'PicturesController@edit');
+Route::patch('/picture/edit/{picture}', 'PicturesController@update');
+Route::get('/picture/{picture}/destroy', 'PicturesController@destroy');

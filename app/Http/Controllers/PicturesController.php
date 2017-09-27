@@ -137,7 +137,14 @@ class PicturesController extends Controller
         $picture->path_to_file = $this->_imageLocation;
         $name->pictures()->save($picture);
 
+        if (!$picture->avatar) {
+            return redirect('/portfolio/'.$name->id);
+        }
+
         return redirect('/profile/'.$name->id);
+
+
+
     }
 
 
@@ -158,6 +165,50 @@ class PicturesController extends Controller
         }
 
         return view('pictures.show', compact('picture', 'name', 'pictureUpOne', 'pictureDownOne'));
+    }
+
+
+    public function edit(Picture $picture, Name $name)
+    {
+
+        $name = new Name();
+
+        $name = $name->find($picture->name_id);
+
+
+        $avatar = (new Picture())->where('avatar', 1)->where('name_id', $picture->name_id)->first();
+
+        $dob = (new \App\Repositories\Names)->Dob($name->byear, $name->bmonth, $name->bday, $name->note);
+
+        return view('pictures.edit', compact('picture', 'name', 'dob', 'avatar'));
+    }
+
+
+    public function update(Picture $picture)
+    {
+        $avatar = (request('avatar') == 1) ? 1 : 0;
+        $hasAvatarChanged = ($picture::find($picture->id)->avatar == $avatar) ? false : true;
+
+        if ( ($avatar == 1) AND ($hasAvatarChanged) ) {
+        Picture::where('name_id', $picture->name_id)->update(['avatar' => 0]);
+        }
+
+        $picture->update(['avatar'=>$avatar, 'caption'=>request('caption')]);
+
+        if (!$hasAvatarChanged) {
+            return redirect('/picture/'.$picture->id);
+        }
+
+        return redirect('/profile/'.$picture->name_id);
+    }
+
+
+    public function destroy(Picture $picture)
+    {
+        $picture->delete();
+
+        return redirect('/portfolio/'.$picture->name_id);
+
     }
 
 

@@ -10,7 +10,7 @@
     <h1 align="center" style="">Robert Ian Farber aka: Robby</h1>
 
     <a href="/portfolio/{{$picture->name_id}}">View All</a>
-
+    <a style="float:right" href="/picture/edit/{{$picture->id}}">Edit</a>
         <div align="center" >
             <nav style="width: 275px">
                 <ul class="pager" >

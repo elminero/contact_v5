@@ -42,9 +42,10 @@
             {{csrf_field()}}
 
             <h3 style="float: left">Update Contact</h3>
-            <span style='float: right'>
+            <span style='float: right; margin-bottom: 15px;'>
                 <a class="btn btn-danger" id="delete" href="/names/{{$name->id}}/destroy">delete</a>
-            </span><br />
+            </span>
+            <br />
             <div style="clear: both"></div>
 
             <div class="form-group">

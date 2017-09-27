@@ -1,11 +1,12 @@
 @extends('layouts.master')
-@section('contents')
 
 @section('pagescript')
     <script src="/js/jquery-3.2.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="/js/statedropdown.js"></script>
 @endsection
+
+@section('contents')
 
     <ol class="breadcrumb">
         <li><a href="/names/list">List</a></li>
@@ -45,11 +46,15 @@
                 {{csrf_field()}}
                 {{method_field('PATCH')}}
 
-                <h3 id="rude">Update Address</h3>
-                    <span style='float: right'>
-            <a class="btn btn-danger"  id="delete" href="/addresses/{{$address->id}}/destroy">delete</a>
-            </span><br />
+                
+                <h3 style="float: left">Update Address</h3>
+                    <span style='float: right; margin-bottom: 15px;'>
+                        <a class="btn btn-danger" id="delete"
+                           href="/addresses/{{$address->id}}/destroy">delete</a>
+                    </span>
+                <br />
                 <div style="clear: both"></div>
+
 
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="type">Type</label>

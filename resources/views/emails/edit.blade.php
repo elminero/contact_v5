@@ -37,12 +37,12 @@
                 {{method_field('PATCH')}}
                 {{csrf_field()}}
                 <h3 style="float: left">Update E-Mail Address</h3>
-                    <span style='float: right'>
-                    <a class="btn btn-danger" id="delete"
+                    <span style='float: right; margin-bottom: 15px;'>
+                        <a class="btn btn-danger" id="delete"
                        href="/emails/{{$email->id}}/destroy">delete</a>
-                    </span><br />
+                    </span>
+                    <br />
                 <div style="clear: both"></div>
-
 
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="type">Type</label>

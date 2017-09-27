@@ -6,8 +6,7 @@
         <li><b>Profile</b></li>
     </ol>
 
-
-    <h2 align="center" style="margin-top: -50px; margin-bottom: 40px ">
+    <h2 align="center" style="margin-top: -30px; margin-bottom: 40px ">
         {{$name->first}} {{$name->middle}} {{$name->last}}
         @if ($name->alias)
             aka:

@@ -46,7 +46,7 @@
                 {{csrf_field()}}
                 {{method_field('PATCH')}}
 
-                
+
                 <h3 style="float: left">Update Address</h3>
                     <span style='float: right; margin-bottom: 15px;'>
                         <a class="btn btn-danger" id="delete"

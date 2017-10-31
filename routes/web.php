@@ -24,6 +24,31 @@ Route::get('/names/edit/{name}', 'NamesController@edit');
 Route::patch('/names/edit/{name}', 'NamesController@update');
 Route::get('/names/{name}/destroy', 'NamesController@destroy');
 
+
+
+
+
+Route::get('/names/autocomplete', 'NamesController@autocomplete');
+
+Route::post('/names/find', 'NamesController@find');
+
+
+
+
+Route::get('search', ['as'=>'search', 'uses'=>'NamesController@search']);
+
+
+Route::get('autocomplete', ['as'=>'autocomplete','uses'=>'NamesController@autocomplete'] );
+
+
+
+
+
+
+
+
+
+
 Route::get('/phones/create/{name}', 'PhonesController@create');
 Route::post('/phones/create/{name}', 'PhonesController@store');
 Route::get('/phones/edit/{phone}', 'PhonesController@edit');

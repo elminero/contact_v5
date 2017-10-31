@@ -9,6 +9,10 @@ use App\Name;
 
 use Carbon\Carbon;
 
+use Illuminate\Support\Facades\DB;
+
+use Symfony\Component\Console\Input;
+
 class NamesController extends Controller
 {
 
@@ -19,9 +23,6 @@ class NamesController extends Controller
 
         return view('names.index', compact('names'));
     }
-
-
-
 
 
     public function create()
@@ -82,5 +83,89 @@ class NamesController extends Controller
 
         return redirect('/names/list');
     }
+
+
+
+
+
+    public function search()
+    {
+        return view('search');
+    }
+
+
+    public function autocomplete(Request $request)
+    {
+        $term = $request->input('query');
+
+        $result = DB::select("
+                            SELECT id, CONCAT(first,', ',last,', ',middle,', aka: ', alias) as name
+                            FROM names
+                            where first like '%$term%'
+                            OR last like '%$term%'
+                            OR middle like '%$term%'
+                            OR alias like '%$term%';
+                            ");
+
+        return response()->json($result);
+    }
+
+
+    public function ajaxData(Request $request)
+    {
+
+
+        $data = Name::select("first")->where("first", "LIKE", "%{$request->input('query')}%")->get();
+
+
+
+      //  return $request;
+
+
+        return response()->json($data);
+    }
+
+
+
+    public function find(Request $request)
+    {
+        $term = $request->input('name');
+
+        $names = DB::select("
+            SELECT id, first, last, middle, alias
+            FROM names
+            WHERE CONCAT( first,', ',last,', ',middle,', aka: ', alias ) LIKE  '%$term%';
+        ");
+
+        if (count($names) === 1) {
+            return redirect('/profile/'.$names[0]->id);
+        }
+
+        return view('names.searchResults', compact('names'));
+    }
+
+
+    /*
+
+    public function getSearchResults($term)
+    {
+        $sql = "
+                SELECT id, last_name, first_name, middle_name, alias_name
+                FROM person
+                WHERE   last_name   LIKE '%" . $term . "%'
+                OR      first_name  LIKE '%" . $term . "%'
+                OR      middle_name LIKE '%" . $term . "%'
+                OR      alias_name  LIKE '%" . $term . "%'
+               ";
+
+        $stmt =  $this->pdo->prepare($sql);
+        $stmt->execute();
+
+        return $stmt;
+    }
+
+    */
+
+
 
 }

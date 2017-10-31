@@ -4,29 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
+
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" type="text/css" href="/css/main.css"/>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-    <script src="js/jquery-1.12.0.min.js"></script>
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
 
     @yield('pagescript')
+
+    <script src="/js/timer.js"></script>
 
     <title>Contact - @yield('title')</title>
 </head>
 <body>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="../js/jquery-1.12.0.min.js"></script>
-<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"   integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk="   crossorigin="anonymous"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script src="/js/autocomplete.js"></script>
+
 
 <div class="container" >
     @include('includes.nav')
 </div>
-
-<script src="/js/timer.js"></script>
 
 <div class="container">
 
@@ -38,7 +37,7 @@
 
 </div><!-- end .container -->
 
-<script src="/js/bootstrap.min.js"></script>
+
 </body>
 </html>
 

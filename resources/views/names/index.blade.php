@@ -11,7 +11,12 @@
 
                     @foreach($names as $name)
                         <tr class="active" >
-                            <td><a href="/profile/{{$name->id}}">{{$name->first . " " . $name->middle . " " . $name->last}}</a></td>
+                            <td>
+                                <a href="/profile/{{$name->id}}">
+                                    <div style="float: left;">{{$name->first . " " . $name->middle . " " . $name->last}}</div>
+                                    <div style="float: right;">@if ($name->alias)AKA: @endif {{$name->alias}}</div>
+                                </a>
+                            </td>
                         </tr>
                     @endforeach
 

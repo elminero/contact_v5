@@ -12,6 +12,11 @@ use App\Picture;
 
 class PhonesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function create(Name $name)
     {
         $dob = (new \App\Repositories\Names)->Dob($name->byear, $name->bmonth, $name->bday, $name->note);

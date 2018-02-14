@@ -25,7 +25,7 @@ $(function() {
             document.getElementById("timer").innerHTML = "Logout " + getDisplayTime();
         } else {
             clearInterval(intervalHandler);
-            //  window.location = "";
+            window.location = "/logout";
         }
 
     }

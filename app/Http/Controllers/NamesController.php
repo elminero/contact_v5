@@ -16,6 +16,12 @@ use Symfony\Component\Console\Input;
 class NamesController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     public function index()
     {
         $names = new Name();
@@ -38,13 +44,13 @@ class NamesController extends Controller
         $name->byear = $request->byear;
         $name->bmonth = $request->bmonth;
         $name->bday = $request->bday;
-
         $name->last = $request->last;
         $name->first = $request->first;
         $name->middle = $request->middle;
         $name->alias = $request->alias;
         $name->note = $request->note;
         $name->save();
+
         $id = $name->id;
 
         return redirect('/profile/'.$id);
@@ -85,9 +91,6 @@ class NamesController extends Controller
     }
 
 
-
-
-
     public function search()
     {
         return view('search');
@@ -99,7 +102,7 @@ class NamesController extends Controller
         $term = $request->input('query');
 
         $result = DB::select("
-                            SELECT id, CONCAT(first,', ',last,', ',middle,', aka: ', alias) as name
+                            SELECT id, CONCAT(first,' ',middle,' ',last,' aka: ', alias) as name
                             FROM names
                             where first like '%$term%'
                             OR last like '%$term%'
@@ -134,7 +137,8 @@ class NamesController extends Controller
         $names = DB::select("
             SELECT id, first, last, middle, alias
             FROM names
-            WHERE CONCAT( first,', ',last,', ',middle,', aka: ', alias ) LIKE  '%$term%';
+            WHERE CONCAT( first,' ',middle,' ',last,' aka: ', alias ) LIKE  '%$term%'
+
         ");
 
         if (count($names) === 1) {
@@ -144,9 +148,7 @@ class NamesController extends Controller
         return view('names.searchResults', compact('names'));
     }
 
-
     /*
-
     public function getSearchResults($term)
     {
         $sql = "
@@ -163,9 +165,6 @@ class NamesController extends Controller
 
         return $stmt;
     }
-
     */
-
-
 
 }

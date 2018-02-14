@@ -10,6 +10,11 @@ use App\Picture;
 
 class PicturesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     // WHERE TO PUT IMAGES
     const IMAGE_FOLDER = "/pictures/";
 

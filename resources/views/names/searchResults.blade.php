@@ -8,16 +8,20 @@
         <section class="col-xs-6">
 
             @if (count($names) === 0)
-                    <h4 style="color: red">No Results Found</h4>
+                    <p>No Results Found</p>
             @endif
-
 
             @if (count($names) != 0)
                 <table class="table table-bordered table-hover table-striped table-responsive" >
                     <tbody >
                         @foreach($names as $name)
                             <tr class="active" >
-                                <td><a href="/profile/{{$name->id}}">{{$name->first . " " . $name->middle . " " . $name->last}}</a></td>
+                                <td>
+                                    <a href="/profile/{{$name->id}}">
+                                        <div style="float: left;">{{$name->first . " " . $name->middle . " " . $name->last}}</div>
+                                        <div style="float: right;">AKA: {{$name->alias}}</div>
+                                    </a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

@@ -8,39 +8,52 @@
                 <span class="icon-bar"></span>
             </button>
             <span class="navbar-brand">Online Contacts</span>
+
+            @if (Auth::check())
+                <span class="navbar-brand">Hello {{Auth::user()->name}}</span>
+            @endif
+
         </div>
 
-        <div class="navbar-collapse collapse" id="searchbar">
+        @if (Auth::check())
 
-            <ul class="nav navbar-nav navbar-right">
-                <li class=""><a href="/names/list">List</a></li>
+            <div class="navbar-collapse collapse" id="searchbar">
 
-                <li class=""><a href="/names/create">New</a></li>
+                <ul class="nav navbar-nav navbar-right">
 
-                <li><a href="controllers/LoginController.php?action=logout"><span id="timer">Logout 5:00</span></a></li>
-            </ul>
+                    @if (Auth::user()->is_admin)
+                        <li class=""><a href="/dashboard">admin</a></li>
+                    @endif
 
-            <form class="navbar-form navbar-right" role="search" id="searchForm" action="/names/find" method="post" name="search">
+                    <li class=""><a href="/names/list">List</a></li>
 
-                {{csrf_field()}}
+                    <li class=""><a href="/names/create">New</a></li>
 
+                    <li><a href="/logout"><span id="timer">Logout 5:00</span></a></li>
+                </ul>
 
-                <div class="form-group" style="display:inline;">
-                    <div class="input-group" style="display:table;">
-                        <span class="input-group-addon" style="width:1%;"></span>
+                <form class="navbar-form navbar-right" role="search" id="searchForm" action="/names/find" method="post" name="search">
 
-                        <input type="text" id="search" class="form-control home-search" placeholder="Search For Name" name="name" autocomplete="off" >
+                    {{csrf_field()}}
 
-                        <input name="value" type="hidden" id="tagValue" />
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="submit" value="Profile" id ="SearchName" name="SearchName">Go</button>
-                            </span>
+                    <div class="form-group" style="display:inline;">
+                        <div class="input-group" style="display:table;">
+                            <span class="input-group-addon" style="width:1%;"></span>
 
+                            <input type="text" id="search" class="form-control home-search" placeholder="Search For Name" name="name" autocomplete="off" >
+
+                            <input name="value" type="hidden" id="tagValue" />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="submit" value="Profile" id ="SearchName" name="SearchName">Go</button>
+                                </span>
+
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
 
-        </div>
+            </div>
+
+        @endif
 
 </nav>
 
@@ -48,15 +61,9 @@
 <div id="test"></div>
 
 <script type="text/javascript">
-
-
-
-
     var path = '{{ route('autocomplete') }}';
 
-
     $('#search').focus().typeahead({
-
 
         minLength: 2,
         highlight: true,
@@ -73,10 +80,4 @@
         }
 
     });
-
-
-
-
-
 </script>
-

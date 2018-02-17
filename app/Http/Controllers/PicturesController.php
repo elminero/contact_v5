@@ -123,10 +123,9 @@ class PicturesController extends Controller
     }
 
 
-    public function store(Request $request, Name $name)
+    public function store(Name $name)
     {
         $picture = new Picture();
-
         $picture->avatar = (request('avatar') == 1) ? 1 : 0;
 
         if ($picture->avatar == 1) {
@@ -134,13 +133,15 @@ class PicturesController extends Controller
         }
 
         $picture->caption = request('caption');
-
         $pictureLocation = $this->createPictureFolder();
         $pathToFileName = $this->moveToImageFolderRenameCopy($pictureLocation);
         $this->resizeFullSize($pathToFileName);
         $this->resizeThumbNail($pathToFileName);
         $picture->path_to_file = $this->_imageLocation;
-        $name->pictures()->save($picture);
+
+        // $name->pictures()->save($picture);
+
+        $name->addPicture($picture);
 
         if (!$picture->avatar) {
             return redirect('/portfolio/'.$name->id);
@@ -156,7 +157,7 @@ class PicturesController extends Controller
     }
 
 
-    public function show(Picture $picture, Name $name)
+    public function show(Picture $picture)
     {
         if ( !$pictureUpOne = $picture->where('name_id', $picture->name_id)->where('id', '>', $picture->id)->limit(1)->get()->first() ) {
              $pictureUpOne = $picture->where('name_id', $picture->name_id)->limit(1)->get()->first(); // lowest id
@@ -172,16 +173,10 @@ class PicturesController extends Controller
     }
 
 
-    public function edit(Picture $picture, Name $name)
+    public function edit(Picture $picture)
     {
-
-        $name = new Name();
-
-        $name = $name->find($picture->name_id);
-
-
+        $name = Name::find($picture->name_id);
         $avatar = (new Picture())->where('avatar', 1)->where('name_id', $picture->name_id)->first();
-
         $dob = (new \App\Repositories\Names)->Dob($name->byear, $name->bmonth, $name->bday, $name->note);
 
         return view('pictures.edit', compact('picture', 'name', 'dob', 'avatar'));
@@ -217,8 +212,6 @@ class PicturesController extends Controller
 
 }
 /*
-
-
 "file": {
     "name": "tumblr_m5zqyis36J1r50ghwo1_500.jpg",
     "type": "image/jpeg",

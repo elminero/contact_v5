@@ -14,16 +14,13 @@ class RegistrationController extends Controller
     }
 
     
-    public function store(Request $request)
+    public function store()
     {
-
-
         $this->validate(request(), [
             'name'=>'required|min:3',
             'email'=>'required|email',
             'password'=>'required|min:6|confirmed'
         ]);
-
 
         $user = User::create([
             'name'=>request('name'),
@@ -31,19 +28,12 @@ class RegistrationController extends Controller
             'password'=>bcrypt(request('password'))
         ]);
 
-
      //   auth()->login($user);
-
 
         return redirect()->home();
 
        // return $request->all();
-
-
     }
-
-
-
 }
 
 

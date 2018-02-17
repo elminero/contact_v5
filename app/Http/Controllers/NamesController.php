@@ -24,8 +24,7 @@ class NamesController extends Controller
 
     public function index()
     {
-        $names = new Name();
-        $names = $names->all();
+        $names = Name::all();
 
         return view('names.index', compact('names'));
     }
@@ -37,21 +36,9 @@ class NamesController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store()
     {
-        $name = new Name();
-
-        $name->byear = $request->byear;
-        $name->bmonth = $request->bmonth;
-        $name->bday = $request->bday;
-        $name->last = $request->last;
-        $name->first = $request->first;
-        $name->middle = $request->middle;
-        $name->alias = $request->alias;
-        $name->note = $request->note;
-        $name->save();
-
-        $id = $name->id;
+        $id =  Name::create(request(['byear','bmonth','bday','last','first','middle','alias','note']))->id;
 
         return redirect('/profile/'.$id);
     }

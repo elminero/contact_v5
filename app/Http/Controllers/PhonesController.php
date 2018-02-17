@@ -26,9 +26,12 @@ class PhonesController extends Controller
     }
 
 
-    public function store(Request $request, Name $name)
+    public function store(Name $name)
     {
-        $name->phones()->create($request->all());
+        $name->addPhone(request(['type','number','note']));
+
+
+        //$name->phones()->create(request(['type','number','note']));
 
         return redirect('/profile/'.$name->id);
     }
@@ -44,9 +47,9 @@ class PhonesController extends Controller
     }
 
 
-    public function update(Phone $phone, Request $request)
+    public function update(Phone $phone)
     {
-        $phone->update($request->all());
+        $phone->update(request(['type','number','note']));
 
         return redirect('/profile/'.$phone->name_id);
     }

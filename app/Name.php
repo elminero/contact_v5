@@ -22,9 +22,21 @@ class Name extends Model
     }
 
 
+    public function addPhone($phone)
+    {
+        $this->phones()->create($phone);
+    }
+
+
     public function emails()
     {
         return $this->hasMany(Email::class);
+    }
+
+
+    public function addEmail($email)
+    {
+        $this->emails()->create($email);
     }
 
 
@@ -34,9 +46,21 @@ class Name extends Model
     }
 
 
+    public function addAddress($address)
+    {
+        $this->addresses()->create($address);
+    }
+
+
     public function pictures()
     {
         return $this->hasMany(Picture::class);
+    }
+
+
+    public function addPicture($picture)
+    {
+        $this->pictures()->save($picture);
     }
 
 }

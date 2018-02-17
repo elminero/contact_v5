@@ -33,9 +33,10 @@ class AddressesController extends Controller
     }
 
 
-    public function store(Request $request, Name $name)
+    public function store(Name $name)
     {
-        $name->addresses()->create($request->all());
+        //$name->addresses()->create( request( ['type', 'country', 'city', 'street', 'postal_code', 'note'] ) );
+        $name->addAddress(request(['type', 'country', 'city', 'street', 'postal_code', 'note']));
 
         return redirect('/profile/'.$name->id);
     }
@@ -54,9 +55,9 @@ class AddressesController extends Controller
     }
 
 
-    public function update(Address $address, Request $request)
+    public function update(Address $address)
     {
-        $address->update($request->all());
+        $address->update(request(['type', 'country', 'city', 'street', 'postal_code', 'note']));
 
         return redirect('/profile/'.$address->name_id);
     }

@@ -26,9 +26,10 @@ class EmailsController extends Controller
     }
 
 
-    public function store(Name $name, Request $request)
+    public function store(Name $name)
     {
-        $name->emails()->create($request->all());
+        //$name->emails()->create(request(['type', 'address', 'note',]));
+        $name->addEmail(request(['type', 'address', 'note',]));
 
         return redirect('/profile/'.$name->id);
     }
@@ -44,9 +45,9 @@ class EmailsController extends Controller
     }
 
 
-    public function update(Email $email, Request $request)
+    public function update(Email $email)
     {
-        $email->update($request->all());
+        $email->update(request(['type', 'address', 'note',]));
 
         return redirect('/profile/'.$email->name_id);
     }

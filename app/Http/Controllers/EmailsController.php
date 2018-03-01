@@ -19,10 +19,10 @@ class EmailsController extends Controller
 
     public function create(Name $name)
     {
-        $dob = (new \App\Repositories\Names)->Dob($name->byear, $name->bmonth, $name->bday, $name->note);
-        $avatar = (new Picture())->where('avatar', 1)->where('name_id', $name->id)->first();
+        // $dob = (new \App\Repositories\Names)->Dob($name->byear, $name->bmonth, $name->bday, $name->note);
+        // $avatar = (new Picture())->where('avatar', 1)->where('name_id', $name->id)->first();
 
-        return view('emails.create', compact('name', 'dob', 'avatar'));
+        return view('emails.create', compact('name'));
     }
 
 
@@ -38,10 +38,10 @@ class EmailsController extends Controller
     public function edit(Email $email)
     {
         $name = $email->name;
-        $dob = (new \App\Repositories\Names)->Dob($email->name->byear, $email->name->bmonth, $email->name->bday, $email->name->note);
-        $avatar = (new Picture())->where('avatar', 1)->where('name_id', $name->id)->first();
+        // $dob = (new \App\Repositories\Names)->Dob($email->name->byear, $email->name->bmonth, $email->name->bday, $email->name->note);
+        // $avatar = (new Picture())->where('avatar', 1)->where('name_id', $name->id)->first();
 
-        return view('emails.edit', compact('name', 'dob', 'email', 'avatar'));
+        return view('emails.edit', compact('name', 'email'));
     }
 
 

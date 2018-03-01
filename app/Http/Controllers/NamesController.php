@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Picture;
+
 use Illuminate\Http\Request;
 
 use App\Name;
@@ -46,19 +47,20 @@ class NamesController extends Controller
 
     public function show(Name $name)
     {
-        $dob = (new \App\Repositories\Names)->Dob($name->byear, $name->bmonth, $name->bday, $name->note);
-        $avatar = (new Picture())->where('avatar', 1)->where('name_id', $name->id)->first();
+        // $dob = (new \App\Repositories\Names)->Dob($name->byear, $name->bmonth, $name->bday, $name->note);
+        // $dob = Name::dob($name->byear, $name->bmonth, $name->bday, $name->note);
+        // $avatar = (new Picture())->where('avatar', 1)->where('name_id', $name->id)->first();
 
-        return view('names.show', compact('name', 'dob', 'avatar'));
+        return view('names.show', compact('name'));
     }
 
 
     public function edit(Name $name)
     {
-        $dob = (new \App\Repositories\Names)->Dob($name->byear, $name->bmonth, $name->bday, $name->note);
-        $avatar = (new Picture())->where('avatar', 1)->where('name_id', $name->id)->first();
+        // $dob = (new \App\Repositories\Names)->Dob($name->byear, $name->bmonth, $name->bday, $name->note);
+        // $avatar = (new Picture())->where('avatar', 1)->where('name_id', $name->id)->first();
 
-        return view('names.edit', compact('name', 'dob', 'avatar'));
+        return view('names.edit', compact('name'));
     }
 
 
@@ -103,18 +105,10 @@ class NamesController extends Controller
 
     public function ajaxData(Request $request)
     {
-
-
         $data = Name::select("first")->where("first", "LIKE", "%{$request->input('query')}%")->get();
-
-
-
-      //  return $request;
-
 
         return response()->json($data);
     }
-
 
 
     public function find(Request $request)

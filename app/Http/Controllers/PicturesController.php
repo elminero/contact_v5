@@ -31,23 +31,35 @@ class PicturesController extends Controller
     public $imageLocation;
 
 
-    public function createPictureFolder()
+    private static function createPicturesFolder()
     {
         if(!file_exists( public_path('pictures') )) {
             mkdir('pictures', 0777, true);
             chmod('pictures', 0777);
         }
 
-        $path = public_path(self::IMAGE_FOLDER );
+        return public_path(self::IMAGE_FOLDER );
+    }
+
+
+    private static function createYearFolder($pathYY)
+    {
+        if(!file_exists($pathYY)) {
+            mkdir($pathYY, 0777, true);
+            chmod($pathYY, 0777);
+        }
+    }
+
+
+    public function createPictureFolder()
+    {
+        $path = static::createPicturesFolder();
 
         // Create the folders YY/MM/DD/HH
         $date = explode( "|", date("y|m|d|H") );
         list($y, $m, $d, $h) = $date;
 
-        if(!file_exists($path . $y)) {
-            mkdir($path . $y, 0777, true);
-            chmod($path . $y, 0777);
-        }
+        static::createYearFolder($path . $y);
 
         if(!file_exists($path . $y . "/" . $m)) {
             mkdir($path. $y . "/" . $m, 0777, true);
@@ -115,11 +127,10 @@ class PicturesController extends Controller
 
     public function create(Name $name)
     {
-        $dob = (new \App\Repositories\Names)->Dob($name->byear, $name->bmonth, $name->bday, $name->note);
+        // $dob = (new \App\Repositories\Names)->Dob($name->byear, $name->bmonth, $name->bday, $name->note);
+        // $avatar = (new Picture())->where('avatar', 1)->where('name_id', $name->id)->first();
 
-        $avatar = (new Picture())->where('avatar', 1)->where('name_id', $name->id)->first();
-
-        return view('pictures.create', compact('name', 'dob', 'avatar'));
+        return view('pictures.create', compact('name'));
     }
 
 
@@ -177,9 +188,9 @@ class PicturesController extends Controller
     {
         $name = Name::find($picture->name_id);
         $avatar = (new Picture())->where('avatar', 1)->where('name_id', $picture->name_id)->first();
-        $dob = (new \App\Repositories\Names)->Dob($name->byear, $name->bmonth, $name->bday, $name->note);
+        // $dob = (new \App\Repositories\Names)->Dob($name->byear, $name->bmonth, $name->bday, $name->note);
 
-        return view('pictures.edit', compact('picture', 'name', 'dob', 'avatar'));
+        return view('pictures.edit', compact('picture', 'name', 'avatar'));
     }
 
 

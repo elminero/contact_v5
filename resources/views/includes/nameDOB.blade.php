@@ -36,6 +36,10 @@ use Carbon\Carbon;
 
         <br />
 
+
+
+        <br />
+
         <b>DOB:</b> {{ $dob['dob'] }}<br />
         <b>Age:</b> {{ $dob['age'] }}<br />
         <b>Note:</b> {{ $dob['note'] }}

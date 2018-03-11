@@ -101,6 +101,8 @@
                 </div>
             </div>
 
+            @include('includes.errors')
+
         </form>
 
     </section>

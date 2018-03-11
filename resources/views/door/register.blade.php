@@ -1,10 +1,6 @@
 @extends('layouts.master')
 @section('contents')
 
-    <ol class="breadcrumb">
-
-    </ol>
-
     <div class="row">
         <section class="col-xs-6">
 
@@ -43,9 +39,11 @@
 
                 <div class="form-group">
                     <div class="col-sm-10 col-sm-offset-2">
-                        <input class="form-control btn btn-primary"  type="submit" name="register" value="Register" id="register"/>
+                        <button type="submit" class="form-control btn btn-primary" name="register" value="Register" id="register"><h3>Register</h3></button>
                     </div>
                 </div>
+
+                @include('includes.errors')
 
             </form>
 

@@ -20,4 +20,22 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+
+
+    /**
+     * A basic test example.
+     *
+     * @return void
+     */
+    public function testLogoutTest()
+    {
+        $response = $this->get('/logout');
+
+        $response->assertStatus(200);
+    }
+
+
+
+    // /names/list
 }

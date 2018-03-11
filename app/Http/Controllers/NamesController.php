@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\DB;
 
 use Symfony\Component\Console\Input;
 
+use App\Repositories\Names;
+
 class NamesController extends Controller
 {
 
@@ -25,7 +27,9 @@ class NamesController extends Controller
 
     public function index()
     {
-        $names = Name::all();
+        // $names = Name::all()->orderBy('last');
+
+        $names = Name::orderBy('last')->orderBy('first')->paginate(15);
 
         return view('names.index', compact('names'));
     }
@@ -39,19 +43,26 @@ class NamesController extends Controller
 
     public function store()
     {
+        if (!request('last') && !request('first') && !request('middle') && !request('alias')) {
+            return back()->WithErrors(['A name must be entered.']);
+        }
+
         $id =  Name::create(request(['byear','bmonth','bday','last','first','middle','alias','note']))->id;
 
         return redirect('/profile/'.$id);
     }
 
 
-    public function show(Name $name)
+    public function show(Name $name, Names $names)
     {
         // $dob = (new \App\Repositories\Names)->Dob($name->byear, $name->bmonth, $name->bday, $name->note);
+
+        $dob = $names->Dob($name->byear, $name->bmonth, $name->bday, $name->note);
+
         // $dob = Name::dob($name->byear, $name->bmonth, $name->bday, $name->note);
         // $avatar = (new Picture())->where('avatar', 1)->where('name_id', $name->id)->first();
 
-        return view('names.show', compact('name'));
+        return view('names.show', compact('name', 'dob'));
     }
 
 
@@ -66,6 +77,10 @@ class NamesController extends Controller
 
     public function update(Request $request, Name $name)
     {
+        if (!request('last') && !request('first') && !request('middle') && !request('alias')) {
+            return back()->WithErrors(['A name must be entered.']);
+        }
+
         $name->update($request->all());
 
         return redirect('/profile/'.$name->id);

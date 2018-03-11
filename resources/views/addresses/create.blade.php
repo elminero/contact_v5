@@ -12,13 +12,7 @@
         <li><b>Add an Address</b></li>
     </ol>
 
-    <h2 align="center" style="margin-top: -50px; margin-bottom: 40px ">
-        {{$name->first}} {{$name->middle}} {{$name->last}}
-        @if ($name->alias)
-            aka:
-        @endif
-        {{$name->alias}}
-    </h2>
+    @include('includes.nameBar')
 
     <div class="row">
 
@@ -65,7 +59,7 @@
                     <label class="col-sm-2 control-label" for="country">Country</label>
                     <div class="col-sm-10">
                         <select name="country" class="form-control" id="country">
-                            <option value= "1"> </option>
+                            <option value= ""> </option>
                             <option value="US" > United States </option  >
                             <option value="CA" > Canada </option>
                             <option value="MX" > Mexico </option>
@@ -119,6 +113,8 @@
                         <input class="btn btn-primary form-control"  type="submit" name="addAddress" value="Create" id="create"/>
                     </div>
                 </div>
+
+                @include('includes.errors')
 
             </form>
 

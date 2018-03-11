@@ -8,7 +8,9 @@ use App\Name;
 
 use App\Email;
 
-use App\Picture;
+use Illuminate\Support\Facades\Validator;
+
+use App\Http\Requests\EmailRequest;
 
 class EmailsController extends Controller
 {
@@ -26,10 +28,13 @@ class EmailsController extends Controller
     }
 
 
-    public function store(Name $name)
+    public function store(Name $name, EmailRequest $emailRequest)
     {
-        //$name->emails()->create(request(['type', 'address', 'note',]));
-        $name->addEmail(request(['type', 'address', 'note',]));
+        $emailRequest->validate();
+
+        $email = $name->addEmail(request(['type', 'address', 'note',]));
+
+        session()->flash('emailCreate', $email->id);
 
         return redirect('/profile/'.$name->id);
     }
@@ -45,9 +50,14 @@ class EmailsController extends Controller
     }
 
 
-    public function update(Email $email)
+    public function update(Email $email, EmailRequest $emailRequest)
     {
+        $emailRequest->validate();
+
         $email->update(request(['type', 'address', 'note',]));
+
+
+        session()->flash('emailUpdate', $email->id);
 
         return redirect('/profile/'.$email->name_id);
     }

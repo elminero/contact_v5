@@ -25,7 +25,7 @@ class Name extends Model
 
     public function addPhone($phone)
     {
-        $this->phones()->create($phone);
+        return $this->phones()->create($phone);
     }
 
 
@@ -37,7 +37,7 @@ class Name extends Model
 
     public function addEmail($email)
     {
-        $this->emails()->create($email);
+       return $this->emails()->create($email);
     }
 
 
@@ -49,7 +49,7 @@ class Name extends Model
 
     public function addAddress($address)
     {
-        $this->addresses()->create($address);
+        return $this->addresses()->create($address);
     }
 
 

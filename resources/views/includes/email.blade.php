@@ -1,8 +1,18 @@
 <div style="padding: 20px">
     <h3><a href="/emails/create/{{$name->id}}">eMail Address</a></h3>
+        @foreach($name->emails as $email)
+            <a href="/emails/edit/{{$email->id}}">
+            <span
+                @if (session('emailUpdate') === $email->id)
+                class="update"
+                @endif
 
-    @foreach($name->emails as $email)
-        <a href="/emails/edit/{{$email->id}}">{{$email->address . " " . $email->note}}<br /></a>
-    @endforeach
-
+                @if (session('emailCreate') === $email->id)
+                class="create"
+                @endif
+            >
+                {{$email->address . " " . $email->note}}
+            </span>
+            </a><br />
+        @endforeach
 </div>

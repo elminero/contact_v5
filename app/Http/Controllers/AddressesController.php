@@ -35,8 +35,14 @@ class AddressesController extends Controller
 
     public function store(Name $name)
     {
+        $this->validate(request(), [
+            'country'=>'required'
+        ]);
+
         //$name->addresses()->create( request( ['type', 'country', 'city', 'street', 'postal_code', 'note'] ) );
-        $name->addAddress(request(['type', 'country', 'city', 'street', 'postal_code', 'note']));
+        $address = $name->addAddress(request(['type', 'country', 'state', 'city', 'street', 'postal_code', 'note']));
+
+        session()->flash('addressCreate', $address->id);
 
         return redirect('/profile/'.$name->id);
     }
@@ -57,7 +63,8 @@ class AddressesController extends Controller
 
     public function update(Address $address)
     {
-        $address->update(request(['type', 'country', 'city', 'street', 'postal_code', 'note']));
+        $address->update(request(['type', 'country', 'state', 'city', 'street', 'postal_code', 'note']));
+        session()->flash('addressUpdate', $address->id);
 
         return redirect('/profile/'.$address->name_id);
     }

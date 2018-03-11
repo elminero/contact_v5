@@ -136,6 +136,10 @@ class PicturesController extends Controller
 
     public function store(Name $name)
     {
+        $this->validate(request(), [
+            'file'=>'required|mimes:jpeg|max:500'
+        ]);
+
         $picture = new Picture();
         $picture->avatar = (request('avatar') == 1) ? 1 : 0;
 

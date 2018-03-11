@@ -7,13 +7,7 @@
         <li><b>Edit Picture</b></li>
     </ol>
 
-    <h2 align="center" style="margin-top: -50px; margin-bottom: 40px ">
-        {{$name->first}} {{$name->middle}} {{$name->last}}
-        @if ($name->alias)
-            aka:
-        @endif
-        {{$name->alias}}
-    </h2>
+    @include('includes.nameBar')
 
     <div class="row">
 
@@ -50,7 +44,6 @@
 
             <form class="form-horizontal" action="/picture/edit/{{$picture->id}}" method="post" enctype="multipart/form-data" >
 
-
                 {{csrf_field()}}
 
                 {{method_field('PATCH')}}
@@ -70,10 +63,6 @@
                     </div>
                 </div>
 
-
-
-
-
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="caption"><span>Caption</span><span id="error"></span></label>
                     <div class="col-sm-10">
@@ -86,6 +75,8 @@
                         <input class="btn btn-primary form-control" type="submit" name="imageUpLoad" value="Update Picture" />
                     </div>
                 </div>
+
+                @include('includes.errors')
 
             </form>
 

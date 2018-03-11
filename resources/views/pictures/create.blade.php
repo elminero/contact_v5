@@ -7,13 +7,7 @@
         <li><b>Add Picture</b></li>
     </ol>
 
-    <h2 align="center" style="margin-top: -50px; margin-bottom: 40px ">
-        {{$name->first}} {{$name->middle}} {{$name->last}}
-        @if ($name->alias)
-            aka:
-        @endif
-        {{$name->alias}}
-    </h2>
+    @include('includes.nameBar')
 
     <div class="row">
 
@@ -67,6 +61,8 @@
                             <input class="btn btn-default" type="submit" name="imageUpLoad" value="Upload Picture" />
                         </div>
                     </div>
+
+                    @include('includes.errors')
 
                 </form>
 

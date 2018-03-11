@@ -31,6 +31,7 @@
 
 .breadcrumb {
     background-color: #1b6d85;
+    margin-bottom: 0
 }
 
 
@@ -70,3 +71,8 @@
     background-color: transparent;
     color: white;
 }
+
+table {
+    margin-top: 25px;
+}
+

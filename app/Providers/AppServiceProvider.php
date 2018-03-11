@@ -6,6 +6,8 @@ use Illuminate\Support\ServiceProvider;
 
 use Illuminate\Support\Facades\View;
 
+use App\Repositories\Names;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -13,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(Names $names)
     {
         // View::share('key', 123);
 
@@ -22,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
             $name = $view->getData()['name'];
 
             $view->with('dob', (new \App\Repositories\Names)->Dob($name->byear, $name->bmonth, $name->bday, $name->note));
+
         });
 
 

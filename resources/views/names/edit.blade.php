@@ -7,13 +7,7 @@
     <li><b>Update</b></li>
 </ol>
 
-<h2 align="center" style="margin-top: -50px; margin-bottom: 40px ">
-    {{$name->first}} {{$name->middle}} {{$name->last}}
-    @if ($name->alias)
-        aka:
-    @endif
-    {{$name->alias}}
-</h2>
+@include('includes.nameBar')
 
 <div class="row">
 
@@ -140,13 +134,9 @@
                 </div>
             </div>
 
+            @include('includes.errors')
+
         </form>
-
-
-
-
-
-
 
     </section><!--<div class="col-sm-5">-->
 </div><!--<div class="row">-->

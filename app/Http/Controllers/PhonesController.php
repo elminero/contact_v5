@@ -28,7 +28,13 @@ class PhonesController extends Controller
 
     public function store(Name $name)
     {
-        $name->addPhone(request(['type','number','note']));
+        $this->validate(request(), [
+            'number'=>'required'
+        ]);
+
+        $phone = $name->addPhone(request(['type','number','note']));
+
+        session()->flash('phoneCreate', $phone->id);
 
         return redirect('/profile/'.$name->id);
     }
@@ -47,6 +53,8 @@ class PhonesController extends Controller
     public function update(Phone $phone)
     {
         $phone->update(request(['type','number','note']));
+
+        session()->flash('phoneUpdate', $phone->id);
 
         return redirect('/profile/'.$phone->name_id);
     }

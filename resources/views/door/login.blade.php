@@ -1,10 +1,6 @@
 @extends('layouts.master')
 @section('contents')
 
-    <ol class="breadcrumb">
-
-    </ol>
-
     <div class="row">
         <section class="col-xs-6">
 

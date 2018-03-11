@@ -7,13 +7,7 @@
         <li><b>Update Phone Number</b></li>
     </ol>
 
-    <h2 align="center" style="margin-top: -50px; margin-bottom: 40px ">
-        {{$name->first}} {{$name->middle}} {{$name->last}}
-        @if ($name->alias)
-            aka:
-        @endif
-        {{$name->alias}}
-    </h2>
+    @include('includes.nameBar')
 
     <div class="row">
 
@@ -81,6 +75,8 @@
                         <input class="form-control btn btn-primary"  type="submit" name="addPhone" value="Update" id="update"/>
                     </div>
                 </div>
+
+                @include('includes.errors')
 
             </form>
 

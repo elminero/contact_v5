@@ -18,12 +18,12 @@
 
         <section class="col-sm-3">
             @include('includes.nameDOB')
-            @include('includes.address')
         </section>
 
         <section class="col-sm-3">
             @include('includes.phoneNumbers')
             @include('includes.email')
+            @include('includes.address')
         </section>
 
         <section class="col-sm-4">
@@ -32,7 +32,7 @@
                 {{method_field('PATCH')}}
                 {{csrf_field()}}
 
-                <h3 style="float: left">Update Phone Number</h3>
+                <h3 class="update" style="float: left">Update Phone Number</h3>
                         <span style='float: right; margin-bottom: 15px;'>
                             <a class="btn btn-danger" id="delete" href="/phones/{{$phone->id}}/destroy">delete</a>
                         </span>

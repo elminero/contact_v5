@@ -23,12 +23,12 @@
 
         <section class="col-sm-3">
             @include('includes.nameDOB')
-            @include('includes.address')
         </section>
 
         <section class="col-sm-3">
             @include('includes.phoneNumbers')
             @include('includes.email')
+            @include('includes.address')
         </section>
 
         <section class="col-sm-4">
@@ -37,7 +37,7 @@
 
                 {{csrf_field()}}
 
-                <h3 id="rude">Add Address</h3>
+                <h3 class="create" id="rude">Add Address</h3>
 
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="type">Type</label>

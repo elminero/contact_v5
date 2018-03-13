@@ -178,17 +178,31 @@ legend {
 
 
 
+.item {
+    padding: 20px;
+}
 
 
 
 
+.item h3 a:link {
+    color: white;
+    text-decoration: none; /* unless you style your links to look extremely unique, it's best to provide underlines for quick visual identification */
+}
+.item h3 a:visited {
+    color: white;
+    text-decoration: none;
+}
+.item h3 a:hover, a:active, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
+    text-decoration: none;
+    color: green;
+}
 
 
-
-
-
-
-
+.addpicture a:hover, a:active, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
+    text-decoration: none;
+    color: green;
+}
 
 
 

@@ -1,4 +1,4 @@
-<div style="padding: 20px">
+<div class="item">
     <h3><a href="/emails/create/{{$name->id}}">eMail Address</a></h3>
         @foreach($name->emails as $email)
             <a href="/emails/edit/{{$email->id}}">

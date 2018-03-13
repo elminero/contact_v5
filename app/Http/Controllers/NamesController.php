@@ -49,6 +49,8 @@ class NamesController extends Controller
 
         $id =  Name::create(request(['byear','bmonth','bday','last','first','middle','alias','note']))->id;
 
+        session()->flash('nameCreate', $id);
+
         return redirect('/profile/'.$id);
     }
 
@@ -82,6 +84,8 @@ class NamesController extends Controller
         }
 
         $name->update($request->all());
+
+        session()->flash('nameUpdate', $name->id);
 
         return redirect('/profile/'.$name->id);
     }

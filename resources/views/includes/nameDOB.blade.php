@@ -1,10 +1,14 @@
-<?php
-use Carbon\Carbon;
-?>
+<a href="/names/edit/{{$name->id}}">
+    <div
 
-<div style="">
-    <a href="/names/edit/{{$name->id}}">
-<!--
+            @if (session('nameUpdate') === $name->id)
+                class="update"
+            @endif
+
+            @if (session('nameCreate') === $name->id)
+                class="create"
+            @endif
+    >
         <h1>
             @if ($name->first)
                 {{ $name->first . " "}}
@@ -19,7 +23,6 @@ use Carbon\Carbon;
                 <br />Alias: {{ $name->alias }}
             @endif
         </h1>
--->
 
         @if ($name->first)
             <b>First Name:</b> {{ $name->first}}<br />
@@ -35,17 +38,14 @@ use Carbon\Carbon;
         @endif
 
         <br />
-
-
-
         <br />
 
         <b>DOB:</b> {{ $dob['dob'] }}<br />
         <b>Age:</b> {{ $dob['age'] }}<br />
         <b>Note:</b> {{ $dob['note'] }}
+    </div>
+</a>
 
-    </a>
-</div>
 
 <!--
 

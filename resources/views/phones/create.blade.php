@@ -18,18 +18,18 @@
 
         <section class="col-sm-3">
             @include('includes.nameDOB')
-            @include('includes.address')
         </section>
 
         <section class="col-sm-3">
             @include('includes.phoneNumbers')
             @include('includes.email')
+            @include('includes.address')
         </section>
-
+        
             <section class="col-sm-4">
             <form class="form-horizontal" action="/phones/create/{{$name->id}}" method="post"> <!-- type number  note  -->
                 {{csrf_field()}}
-                <h3>Add Phone Number</h3>
+                <h3 class="create">Add Phone Number</h3>
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="type">Type</label>
                     <div class="col-sm-10">

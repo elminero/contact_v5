@@ -19,12 +19,9 @@
         </section>
 
         <section class="col-sm-3">
-            @include('includes.address')
-        </section>
-
-        <section class="col-sm-3">
             @include('includes.phoneNumbers')
             @include('includes.email')
+            @include('includes.address')
         </section>
 
     </div>

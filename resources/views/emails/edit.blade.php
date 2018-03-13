@@ -18,19 +18,19 @@
 
         <section class="col-sm-3">
             @include('includes.nameDOB')
-            @include('includes.address')
         </section>
 
         <section class="col-sm-3">
             @include('includes.phoneNumbers')
             @include('includes.email')
+            @include('includes.address')
         </section>
 
         <section class="col-sm-4">
             <form class="form-horizontal"  action="/emails/edit/{{$email->id}}" method="post" name="addEmail">
                 {{method_field('PATCH')}}
                 {{csrf_field()}}
-                <h3 style="float: left">Update E-Mail Address</h3>
+                <h3 class="update" style="float: left">Update E-Mail Address</h3>
                     <span style='float: right; margin-bottom: 15px;'>
                         <a class="btn btn-danger" id="delete"
                        href="/emails/{{$email->id}}/destroy">delete</a>

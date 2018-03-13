@@ -18,18 +18,17 @@
 
         <section class="col-sm-3">
             @include('includes.nameDOB')
-            @include('includes.address')
         </section>
 
         <section class="col-sm-3">
             @include('includes.phoneNumbers')
             @include('includes.email')
+            @include('includes.address')
         </section>
 
         <section class="col-sm-4">
 
-
-            <h3 style="float: left">Update Picture</h3>
+            <h3 class="update" style="float: left">Update Picture</h3>
                     <span style='float: right'>
                     <a class="btn btn-danger" id="delete"
                        href="/picture/{{$picture->id}}/destroy">delete</a>

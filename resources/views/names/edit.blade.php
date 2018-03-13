@@ -18,16 +18,15 @@
 
     <section class="col-sm-3">
         @include('includes.nameDOB')
-        @include('includes.address')
     </section>
 
     <section class="col-sm-3">
         @include('includes.phoneNumbers')
         @include('includes.email')
+        @include('includes.address')
     </section>
 
     <section class="col-sm-4">
-
 
         <form class="form-horizontal" action="/names/edit/{{$name->id}}" method="post">
 

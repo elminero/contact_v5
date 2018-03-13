@@ -18,15 +18,17 @@
 
         <section class="col-sm-3">
             @include('includes.nameDOB')
-            @include('includes.address')
         </section>
 
         <section class="col-sm-3">
             @include('includes.phoneNumbers')
             @include('includes.email')
+            @include('includes.address')
         </section>
 
         <section class="col-sm-4">
+
+            <h3 class="create" style="float: left">Add a Picture</h3>
 
                 <form class="form-horizontal" action="/pictures/create/{{$name->id}}" method="post" enctype="multipart/form-data" >
 

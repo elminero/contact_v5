@@ -8,6 +8,8 @@ use App\Name;
 
 use App\Tag;
 
+use Illuminate\Support\Facades\DB;
+
 class TagsController extends Controller
 {
     /**
@@ -117,6 +119,11 @@ class TagsController extends Controller
     public function destroy(Request $request, Name $name)
     {
         $name->tags()->detach($request->tag);
+
+        // Remove the tag if its not used by another name.
+        if (!count(DB::table('name_tag')->where('tag_id', $request->tag)->get())) {
+            DB::table('tags')->where('id', $request->tag)->delete();
+        }
 
         return back();
     }

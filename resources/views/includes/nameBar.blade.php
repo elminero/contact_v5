@@ -5,3 +5,11 @@
     @endif
     {{$name->alias}}
 </h2>
+
+
+
+
+
+
+
+

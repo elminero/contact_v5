@@ -74,3 +74,9 @@ Route::get('/users/{user}', 'UsersController@edit');
 Route::patch('/users/{user}', 'UsersController@update');
 
 Route::get('/dashboard', 'UsersController@dashboard');
+
+Route::post('/profile/{name}/tag', 'TagsController@tagIt');
+
+Route::post('/profile/{name}/newtag', 'TagsController@store');
+
+Route::post('/profile/{name}/detach', 'TagsController@destroy');

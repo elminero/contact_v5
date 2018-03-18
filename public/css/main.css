@@ -204,7 +204,9 @@ legend {
     color: green;
 }
 
-
+table tbody th{
+    color: black;
+}
 
 
 

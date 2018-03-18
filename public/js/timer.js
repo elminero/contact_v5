@@ -1,7 +1,7 @@
 
 $(function() {
-
-    var time = 300;
+//300
+    var time = 24000;
     var maxTime = time + 1;
 
     function getDisplayTime() {

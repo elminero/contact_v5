@@ -17,6 +17,12 @@ class Name extends Model
     protected $table = 'names';
 
 
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+
+
     public function phones()
     {
         return $this->hasMany(Phone::class);

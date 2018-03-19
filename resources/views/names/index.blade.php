@@ -1,6 +1,13 @@
 @extends('layouts.master')
 @section('contents')
 
+    <div style="margin-top: -15px">
+        Tags:
+        @foreach($tags as $tag)
+            &emsp;<a href="/tag/{{$tag->name}}">{{$tag->name}}</a>&emsp;&emsp;
+        @endforeach
+    </div>
+
     <ol class="breadcrumb">
         <li><b>List</b></li>
     </ol>
@@ -26,7 +33,7 @@
 
                             <td>
                                 @foreach( $name->tags as $tag)
-                                    <a href="/profile/{{$name->id}}"> {{$tag->name}}</a>
+                                    <a href="/profile/{{$name->id}}"> {{$tag->name}}</a>&emsp;&emsp;
                                 @endforeach
                             </td>
                         </tr>
@@ -35,7 +42,7 @@
                 </tbody>
             </table>
 
-                    {{ $names->links()  }}
+                    {{ $names->links() }}
 
         </section>
     </div>

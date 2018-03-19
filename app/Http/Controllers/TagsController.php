@@ -15,11 +15,16 @@ class TagsController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param   \App\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Tag $tag)
     {
-        //
+        $names = $tag->names()->paginate(15);
+
+        $tags = Tag::get();
+
+        return view('names.index', compact('names', 'tags'));
     }
 
     /**
@@ -38,6 +43,7 @@ class TagsController extends Controller
      * Attach an existing tag to a name
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param   \App\Name  $name
      * @return \Illuminate\Http\Response
      */
     public function tagIt(Request $request, Name $name)

@@ -4,7 +4,7 @@
     <div style="margin-top: -15px">
         Tags:
         @foreach($name->tags as $tag)
-            {{$tag->name}}
+            &emsp;<a href="/tag/{{$tag->name}}">{{$tag->name}}</a>&emsp;&emsp;
         @endforeach
     </div>
 

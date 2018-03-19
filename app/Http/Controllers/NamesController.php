@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 use App\Name;
 
-use Carbon\Carbon;
+use App\Tag;
 
 use Illuminate\Support\Facades\DB;
 
@@ -31,7 +31,9 @@ class NamesController extends Controller
 
         $names = Name::orderBy('last')->orderBy('first')->paginate(15);
 
-        return view('names.index', compact('names'));
+        $tags = Tag::get();
+
+        return view('names.index', compact('names', 'tags'));
     }
 
 

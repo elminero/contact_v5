@@ -80,3 +80,5 @@ Route::post('/profile/{name}/tag', 'TagsController@tagIt');
 Route::post('/profile/{name}/newtag', 'TagsController@store');
 
 Route::post('/profile/{name}/detach', 'TagsController@destroy');
+
+Route::get('/tag/{tag}', 'TagsController@index');

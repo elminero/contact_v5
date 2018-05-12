@@ -1,0 +1,94 @@
+
+/* ~~ Styling for your site's links must remain in this order - including the group of selectors that create the hover effect. ~~ */
+a:link {
+    color: #ffffff;
+    text-decoration: none; /* unless you style your links to look extremely unique, it's best to provide underlines for quick visual identification */
+}
+a:visited {
+    color: #ffffff;
+    text-decoration: none;
+}
+a:hover, a:active, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
+    text-decoration: none;
+    color: blue;
+}
+
+
+/* ~~ Styling for your site's links must remain in this order - including the group of selectors that create the hover effect. ~~ */
+.item  h3 a:link {
+    color: #ffffff;
+    text-decoration: none; /* unless you style your links to look extremely unique, it's best to provide underlines for quick visual identification */
+}
+.item  h3 a:visited {
+    color: #ffffff;
+    text-decoration: none;
+}
+.item  h3 a:hover, a:active, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
+    text-decoration: none;
+    color: green;
+}
+
+/* ~~ Styling for your site's links must remain in this order - including the group of selectors that create the hover effect. ~~ */
+.item h5 a:link {
+    color: #ffffff;
+    text-decoration: none; /* unless you style your links to look extremely unique, it's best to provide underlines for quick visual identification */
+}
+.item h5 a:visited {
+    color: #ffffff;
+    text-decoration: none;
+}
+.item h5 a:hover, a:active, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
+    text-decoration: none;
+    color: green;
+}
+
+
+
+.item > a:hover, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
+    text-decoration: none;
+    color: red;
+}
+
+
+
+
+
+
+
+
+
+
+table > tbody > tr  a:link {
+    color: black;
+    text-decoration: none; /* unless you style your links to look extremely unique, it's best to provide underlines for quick visual identification */
+}
+
+table > tbody > tr a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+
+table > tbody > tr a:hover, a:active, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
+    text-decoration: none;
+    color: black;
+}
+
+
+
+
+table > tbody > tr .tag  a:link {
+    color: white;
+    text-decoration: none; /* unless you style your links to look extremely unique, it's best to provide underlines for quick visual identification */
+}
+
+table > tbody > tr .tag a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+
+table > tbody > tr .tag a:hover, a:active, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
+    text-decoration: none;
+    color: white;
+}

@@ -67,33 +67,14 @@ a img { /* this selector removes the default blue border displayed in some brows
     border: none;
 }
 
-/* ~~ Styling for your site's links must remain in this order - including the group of selectors that create the hover effect. ~~ */
-a:link {
-    color: #ffffff;
-    text-decoration: none; /* unless you style your links to look extremely unique, it's best to provide underlines for quick visual identification */
-}
-a:visited {
-    color: #ffffff;
-    text-decoration: none;
-}
-a:hover, a:active, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
-    text-decoration: none;
-    color: #f72608;
-}
 
 
-table a:link {
-    color: #080808;
-    text-decoration: none; /* unless you style your links to look extremely unique, it's best to provide underlines for quick visual identification */
+.btn-round-xs{
+    border-radius: 11px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
-table a:visited {
-    color: #080808;
-    text-decoration: none;
-}
-table a:hover, a:active, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
-    text-decoration: none;
-    color: red;
-}
+
 
 
 /* ~~ These are the columns for the layout. ~~
@@ -185,18 +166,7 @@ legend {
 
 
 
-.item h3 a:link {
-    color: white;
-    text-decoration: none; /* unless you style your links to look extremely unique, it's best to provide underlines for quick visual identification */
-}
-.item h3 a:visited {
-    color: white;
-    text-decoration: none;
-}
-.item h3 a:hover, a:active, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
-    text-decoration: none;
-    color: green;
-}
+
 
 
 .addpicture a:hover, a:active, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
@@ -208,5 +178,25 @@ table tbody th{
     color: black;
 }
 
+.btn-round-lg{
+    border-radius: 22.5px;
+}
+.btn-round{
+    border-radius: 17px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
 
 
+
+.btn-round-sm{
+    border-radius: 15px;
+}
+
+
+.tag {
+    color: white;
+}
+.tag{
+    color: white;
+}

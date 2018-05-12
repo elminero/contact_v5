@@ -1,13 +1,15 @@
 @extends('layouts.master')
 @section('contents')
 
+    @include('includes.tags')
+
     <ol class="breadcrumb">
         <li><a href="/names/list">List</a></li>
         <li><a href="/profile/{{$picture->name_id}}" >Profile</a></li>
         <li><b>Picture</b></li>
     </ol>
 
-    @include('includes.nameBar')
+        @include('includes.nameBar')
 
     <a href="/portfolio/{{$picture->name_id}}">View All</a>
     <a style="float:right" href="/picture/edit/{{$picture->id}}">Edit</a>
@@ -24,7 +26,7 @@
             </nav>
         </div>
 
-        <div style="padding: 5px">
+        <div style="margin-bottom: 40px">
         <a href="/picture/{{$pictureUpOne->id}}" >
             <img style="display: block; margin: 0 auto" class="img-responsive img-rounded" src="/pictures/{{$picture->path_to_file}}.jpg"  />
 

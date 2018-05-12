@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\User;
 
+use App\Events\Register;
+
 class RegistrationController extends Controller
 {
     public function create()
@@ -27,6 +29,9 @@ class RegistrationController extends Controller
             'email'=>request('email'),
             'password'=>bcrypt(request('password'))
         ]);
+
+
+        event(new Register($user));
 
      //   auth()->login($user);
 

@@ -1,33 +1,36 @@
 @extends('layouts.master')
 @section('contents')
 
-    <div style="margin-top: -15px">
-        Tags:
-        @foreach($name->tags as $tag)
-            &emsp;<a href="/tag/{{$tag->name}}">{{$tag->name}}</a>&emsp;&emsp;
-        @endforeach
-    </div>
+    @include('includes.tags')
+
+
+
+    <span style="background-color: #1b6d85;">
+
+        <ol style="float: left" class="breadcrumb">
+            <li><a href="/names/list">list</a></li>
+            <li><b>Profile</b></li>
+
+
+        </ol>
+
+        @include('includes.nameBar')
+
+    </span>
 
     <div style="clear: both"></div>
 
-    <ol class="breadcrumb">
-        <li><a href="/names/list">list</a></li>
-        <li><b>Profile</b></li>
-    </ol>
-
-    @include('includes.nameBar')
-
     <div class="row">
 
-        <section class="col-sm-2">
+        <section class="col-md-3">
             @include('includes.avatar')
         </section>
 
-        <section class="col-sm-3">
+        <section class="col-md-3">
             @include('includes.nameDOB')
         </section>
 
-        <section class="col-sm-3">
+        <section class="col-md-3">
             @include('includes.phoneNumbers')
             @include('includes.email')
             @include('includes.address')

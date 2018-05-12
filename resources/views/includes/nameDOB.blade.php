@@ -1,51 +1,51 @@
-<a href="/names/edit/{{$name->id}}">
-    <div
+<div class="item">
+    <a href="/names/edit/{{$name->id}}">
+        <div
+                @if (session('nameUpdate') === $name->id)
+                    class="update"
+                @endif
 
-            @if (session('nameUpdate') === $name->id)
-                class="update"
-            @endif
+                @if (session('nameCreate') === $name->id)
+                    class="create"
+                @endif
+        >
+            <h1>
+                @if ($name->first)
+                    {{ $name->first . " "}}
+                @endif
+                @if ($name->middle)
+                    {{ $name->middle . " "}}
+                @endif
+                @if ($name->last)
+                    {{ $name->last . " " }}
+                @endif
+                @if ($name->alias)
+                    <br />Alias: {{ $name->alias }}
+                @endif
+            </h1>
 
-            @if (session('nameCreate') === $name->id)
-                class="create"
-            @endif
-    >
-        <h1>
             @if ($name->first)
-                {{ $name->first . " "}}
+                <b>First Name:</b> {{ $name->first}}<br />
             @endif
             @if ($name->middle)
-                {{ $name->middle . " "}}
+                <b>Middle Name:</b> {{ $name->middle . " "}}<br />
             @endif
             @if ($name->last)
-                {{ $name->last . " " }}
+                <b>Last Name:</b> {{ $name->last . " " }}<br />
             @endif
-            @if ($name->alias)
-                <br />Alias: {{ $name->alias }}
+            @if ($name->alias)<br />
+                <b>Alias:</b> {{ $name->alias }}
             @endif
-        </h1>
 
-        @if ($name->first)
-            <b>First Name:</b> {{ $name->first}}<br />
-        @endif
-        @if ($name->middle)
-            <b>Middle Name:</b> {{ $name->middle . " "}}<br />
-        @endif
-        @if ($name->last)
-            <b>Last Name:</b> {{ $name->last . " " }}<br />
-        @endif
-        @if ($name->alias)<br />
-            <b>Alias:</b> {{ $name->alias }}
-        @endif
+            <br />
+            <br />
 
-        <br />
-        <br />
-
-        <b>DOB:</b> {{ $dob['dob'] }}<br />
-        <b>Age:</b> {{ $dob['age'] }}<br />
-        <b>Note:</b> {!! $dob['note'] !!}
-    </div>
-</a>
-
+            <b>DOB:</b> {{ $dob['dob'] }}<br />
+            <b>Age:</b> {{ $dob['age'] }}<br />
+            <b>Note:</b> {!! $dob['note'] !!}
+        </div>
+    </a>
+</div>
 
 <!--
 

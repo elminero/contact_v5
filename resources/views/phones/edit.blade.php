@@ -1,6 +1,8 @@
 @extends('layouts.master')
 @section('contents')
 
+    @include('includes.tags')
+
     <ol class="breadcrumb">
         <li><a href="/names/list">List</a></li>
         <li><a href="/profile/{{$name->id}}" >Profile</a></li>
@@ -11,7 +13,7 @@
 
     <div class="row">
 
-        <section class="col-sm-2">
+        <section class="col-sm-3">
             <!-- div 1 Start Avatar -->
             @include('includes.avatar')
         </section>
@@ -26,7 +28,7 @@
             @include('includes.address')
         </section>
 
-        <section class="col-sm-4">
+        <section class="col-sm-3">
 
             <form class="form-horizontal" action="/phones/edit/{{$phone->id}}" method="post">
                 {{method_field('PATCH')}}
